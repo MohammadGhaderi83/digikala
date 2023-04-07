@@ -28,7 +28,7 @@ public class Sphygmomanometer extends HealthTool{
 
     @Override
     public String toString() {
-        return "Sphygmomanometer{" +
+        return super.toString() + "->" + "Sphygmomanometer{" +
                 "suitableArmSize='" + suitableArmSize + '\'' +
                 ", displayType='" + displayType + '\'' +
                 '}';

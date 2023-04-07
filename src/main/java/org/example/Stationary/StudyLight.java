@@ -28,7 +28,7 @@ public class StudyLight extends Stationary{
 
     @Override
     public String toString() {
-        return "StudyLight{" +
+        return super.toString() + "->" + "StudyLight{" +
                 "bubbleDiameter=" + bubbleDiameter +
                 ", numberOfUsableLamps=" + numberOfUsableLamps +
                 '}';

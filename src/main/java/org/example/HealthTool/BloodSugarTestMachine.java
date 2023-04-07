@@ -28,7 +28,7 @@ public class BloodSugarTestMachine extends HealthTool{
 
     @Override
     public String toString() {
-        return "BloodSugarTestMachine{" +
+        return super.toString() + "->" + "BloodSugarTestMachine{" +
                 "minimumBloodRequired=" + minimumBloodRequired +
                 ", numberOfTestStrips=" + numberOfTestStrips +
                 '}';

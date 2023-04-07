@@ -18,7 +18,7 @@ public class Sock extends Clothe {
 
     @Override
     public String toString() {
-        return "Sock{" +
+        return super.toString() + "->" + "Sock{" +
                 "size='" + size + '\'' +
                 '}';
     }

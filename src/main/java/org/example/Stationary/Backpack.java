@@ -28,7 +28,7 @@ public class Backpack extends Stationary{
 
     @Override
     public String toString() {
-        return "Backpack{" +
+        return super.toString() + "->" + "Backpack{" +
                 "numberOfExternalPockets=" + numberOfExternalPockets +
                 ", numberOfInternalPockets=" + numberOfInternalPockets +
                 '}';

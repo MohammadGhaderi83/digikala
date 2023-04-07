@@ -28,7 +28,7 @@ public class Laptop extends ElectronicDevices{
 
     @Override
     public String toString() {
-        return "Laptop{" +
+        return super.toString() + "->" + "Laptop{" +
                 "RAM=" + RAM +
                 ", weight=" + weight +
                 '}';

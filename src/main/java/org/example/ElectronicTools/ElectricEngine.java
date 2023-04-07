@@ -28,7 +28,7 @@ public class ElectricEngine extends ElectronicTools{
 
     @Override
     public String toString() {
-        return "ElectricEngine{" +
+        return super.toString() + "->" + "ElectricEngine{" +
                 "fuelType='" + fuelType + '\'' +
                 ", enginePower=" + enginePower +
                 '}';

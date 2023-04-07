@@ -28,7 +28,7 @@ public class DishWasher extends KitchenDevices{
 
     @Override
     public String toString() {
-        return "DishWasher{" +
+        return super.toString() + "->" + "DishWasher{" +
                 "capacity=" + capacity +
                 ", numberOfBaskets=" + numberOfBaskets +
                 '}';

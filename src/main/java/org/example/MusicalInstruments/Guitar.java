@@ -28,7 +28,7 @@ public class Guitar extends MusicalInstruments{
 
     @Override
     public String toString() {
-        return "Guitar{" +
+        return super.toString() + "->" + "Guitar{" +
                 "wiresNumber=" + wiresNumber +
                 ", bowlThickness=" + bowlThickness +
                 '}';

@@ -28,7 +28,7 @@ public class Saw extends NonElectronicTools{
 
     @Override
     public String toString() {
-        return "Saw{" +
+        return super.toString() + "->" + "Saw{" +
                 "ironBladeLength=" + ironBladeLength +
                 ", used='" + used + '\'' +
                 '}';

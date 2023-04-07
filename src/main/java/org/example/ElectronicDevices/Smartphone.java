@@ -28,7 +28,7 @@ public class Smartphone extends ElectronicDevices{
 
     @Override
     public String toString() {
-        return "Smartphone{" +
+        return super.toString() + "->" + "Smartphone{" +
                 "cameraQuality=" + cameraQuality +
                 ", numOfCameras=" + numOfCameras +
                 '}';

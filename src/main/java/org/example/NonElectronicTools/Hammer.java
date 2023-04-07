@@ -18,7 +18,7 @@ public class Hammer extends NonElectronicTools{
 
     @Override
     public String toString() {
-        return "Hammer{" +
+        return super.toString() + "->" + "Hammer{" +
                 "crossSectionalSize='" + crossSectionalSize + '\'' +
                 '}';
     }

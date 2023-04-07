@@ -22,6 +22,7 @@ import org.example.UserBase.Seller;
 import org.example.UserBase.User;
 import org.example.Vehicles.Car;
 import org.example.Vehicles.Truck;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -30,9 +31,9 @@ public class Shop {
     private String name = "digikala";
     private String webAddress = "www.digikala.com";
     private String supportNumber = "021-61930000";
-    private ArrayList<Admin> admins;
+    private ArrayList<Admin> admins = new ArrayList<>();
     private ArrayList<User> users = new ArrayList<>();
-    private ArrayList<Seller> sellers;
+    private ArrayList<Seller> sellers = new ArrayList<>();
     private double totalProfit;
     private ArrayList<Product> orders;
     private ArrayList<Laptop> laptops = new ArrayList<>();
@@ -66,7 +67,7 @@ public class Shop {
         return supportNumber;
     }
 
-    public boolean createAccountUser(User user)
+    public boolean createAccountUser(@NotNull User user)
     {
         if (userLogin(user.getPassword()))
         {
@@ -75,7 +76,7 @@ public class Shop {
         users.add(user);
         return true;
     }
-    public boolean createAccountSeller(Seller seller)
+    public boolean createAccountSeller(@NotNull Seller seller)
     {
         if (sellerLogin(seller.getPassword()))
         {
@@ -132,6 +133,7 @@ public class Shop {
     {
         if (!adminLogin(admin.getPassword()))
         {
+            admins.add(admin);
             return true;
         }
         return false;

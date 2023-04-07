@@ -28,7 +28,7 @@ public class Truck extends Vehicle{
 
     @Override
     public String toString() {
-        return "Truck{" +
+        return super.toString() + "->" + "Truck{" +
                 "numberOfWheels=" + numberOfWheels +
                 ", doesHaveBed=" + doesHaveBed +
                 '}';

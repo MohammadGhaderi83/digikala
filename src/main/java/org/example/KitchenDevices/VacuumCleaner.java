@@ -28,7 +28,7 @@ public class VacuumCleaner extends KitchenDevices{
 
     @Override
     public String toString() {
-        return "VacuumCleaner{" +
+        return super.toString() + "->" + "VacuumCleaner{" +
                 "enginePower=" + enginePower +
                 ", powerCableLength=" + powerCableLength +
                 '}';

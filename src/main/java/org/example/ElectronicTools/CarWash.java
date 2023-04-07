@@ -28,7 +28,7 @@ public class CarWash extends ElectronicTools{
 
     @Override
     public String toString() {
-        return "CarWash{" +
+        return super.toString() + "->" + "CarWash{" +
                 "maximumEaterTemperature=" + maximumEaterTemperature +
                 ", hoseLength=" + hoseLength +
                 '}';

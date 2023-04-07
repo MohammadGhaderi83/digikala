@@ -28,7 +28,7 @@ public class Violin extends MusicalInstruments{
 
     @Override
     public String toString() {
-        return "Violin{" +
+        return super.toString() + "->" + "Violin{" +
                 "chinMaterial='" + chinMaterial + '\'' +
                 ", topPlateMaterial='" + topPlateMaterial + '\'' +
                 '}';
