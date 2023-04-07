@@ -6,8 +6,8 @@ public abstract class KitchenDevices extends Product {
     private double volume;
     private String energyConsumptionChart;
 
-    public KitchenDevices(String name, String brand, double price, int number, String color, double volume, String energyConsumptionChart) {
-        super(name, brand, price, number, color);
+    public KitchenDevices(String name, String brand, double price, int number, String color, String ID, double volume, String energyConsumptionChart) {
+        super(name, brand, price, number, color, ID);
         this.volume = volume;
         this.energyConsumptionChart = energyConsumptionChart;
     }

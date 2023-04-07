@@ -2,12 +2,12 @@ package org.example.MusicalInstruments;
 
 import org.example.Product.Product;
 
-public class MusicalInstruments extends Product {
+public abstract class MusicalInstruments extends Product {
     private int weight;
     private String material;
 
-    public MusicalInstruments(String name, String brand, double price, int number, String color, int weight, String material) {
-        super(name, brand, price, number, color);
+    public MusicalInstruments(String name, String brand, double price, int number, String color, String ID, int weight, String material) {
+        super(name, brand, price, number, color, ID);
         this.weight = weight;
         this.material = material;
     }

@@ -4,8 +4,8 @@ public class Saw extends NonElectronicTools{
     private int ironBladeLength;
     private String used;
 
-    public Saw(String name, String brand, double price, int number, String color, String material, int weight, int ironBladeLength, String used) {
-        super(name, brand, price, number, color, material, weight);
+    public Saw(String name, String brand, double price, int number, String color, String ID, String material, int weight, int ironBladeLength, String used) {
+        super(name, brand, price, number, color, ID, material, weight);
         this.ironBladeLength = ironBladeLength;
         this.used = used;
     }

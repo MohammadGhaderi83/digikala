@@ -4,8 +4,8 @@ public class CarWash extends ElectronicTools{
     private int maximumEaterTemperature;
     private int hoseLength;
 
-    public CarWash(String name, String brand, double price, int number, String color, int weight, int powerConsumption, int maximumEaterTemperature, int hoseLength) {
-        super(name, brand, price, number, color, weight, powerConsumption);
+    public CarWash(String name, String brand, double price, int number, String color, String ID, int weight, int powerConsumption, int maximumEaterTemperature, int hoseLength) {
+        super(name, brand, price, number, color, ID, weight, powerConsumption);
         this.maximumEaterTemperature = maximumEaterTemperature;
         this.hoseLength = hoseLength;
     }

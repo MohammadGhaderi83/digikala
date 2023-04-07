@@ -4,8 +4,8 @@ public class Laptop extends ElectronicDevices{
     private int RAM;
     private int weight;
 
-    public Laptop(String name, String brand, double price, int number, String color, String processor, int storage, int RAM, int weight) {
-        super(name, brand, price, number, color, processor, storage);
+    public Laptop(String name, String brand, double price, int number, String color, String ID, String processor, int storage, int RAM, int weight) {
+        super(name, brand, price, number, color, ID, processor, storage);
         this.RAM = RAM;
         this.weight = weight;
     }

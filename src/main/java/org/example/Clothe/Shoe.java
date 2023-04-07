@@ -3,8 +3,8 @@ package org.example.Clothe;
 public class Shoe extends Clothe{
     private boolean isItShoeLace;
 
-    public Shoe(String name, String brand, double price, int number, String color, String material, String genre, boolean isItShoeLace) {
-        super(name, brand, price, number, color, material, genre);
+    public Shoe(String name, String brand, double price, int number, String color, String ID, String material, String genre, boolean isItShoeLace) {
+        super(name, brand, price, number, color, ID, material, genre);
         this.isItShoeLace = isItShoeLace;
     }
 

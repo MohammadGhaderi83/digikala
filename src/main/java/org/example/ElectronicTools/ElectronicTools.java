@@ -6,8 +6,8 @@ public abstract class ElectronicTools extends Product {
     private int weight;
     private int powerConsumption;
 
-    public ElectronicTools(String name, String brand, double price, int number, String color, int weight, int powerConsumption) {
-        super(name, brand, price, number, color);
+    public ElectronicTools(String name, String brand, double price, int number, String color, String ID, int weight, int powerConsumption) {
+        super(name, brand, price, number, color, ID);
         this.weight = weight;
         this.powerConsumption = powerConsumption;
     }

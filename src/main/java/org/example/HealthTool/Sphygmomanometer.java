@@ -4,8 +4,8 @@ public class Sphygmomanometer extends HealthTool{
     private String suitableArmSize;
     private String displayType;
 
-    public Sphygmomanometer(String name, String brand, double price, int number, String color, String supplyPower, String used, String suitableArmSize, String displayType) {
-        super(name, brand, price, number, color, supplyPower, used);
+    public Sphygmomanometer(String name, String brand, double price, int number, String color, String ID, String supplyPower, String used, String suitableArmSize, String displayType) {
+        super(name, brand, price, number, color, ID, supplyPower, used);
         this.suitableArmSize = suitableArmSize;
         this.displayType = displayType;
     }

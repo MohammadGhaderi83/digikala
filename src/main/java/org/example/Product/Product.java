@@ -6,13 +6,15 @@ public abstract class Product {
     private double price;
     private int number;
     private String color;
+    private String ID;
 
-    public Product(String name, String brand, double price, int number, String color) {
+    public Product(String name, String brand, double price, int number, String color, String ID) {
         this.name = name;
         this.brand = brand;
         this.price = price;
         this.number = number;
         this.color = color;
+        this.ID = ID;
     }
 
     public String getName() {
@@ -55,6 +57,14 @@ public abstract class Product {
         this.color = color;
     }
 
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -63,6 +73,7 @@ public abstract class Product {
                 ", price=" + price +
                 ", number=" + number +
                 ", color='" + color + '\'' +
+                ", ID=" + ID +
                 '}';
     }
 }

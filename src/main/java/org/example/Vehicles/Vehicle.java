@@ -6,8 +6,8 @@ public abstract class Vehicle extends Product {
     private int horsepower;
     private int tankVolume;
 
-    public Vehicle(String name, String brand, double price, int number, String color, int horsepower, int tankVolume) {
-        super(name, brand, price, number, color);
+    public Vehicle(String name, String brand, double price, int number, String color, String ID, int horsepower, int tankVolume) {
+        super(name, brand, price, number, color, ID);
         this.horsepower = horsepower;
         this.tankVolume = tankVolume;
     }

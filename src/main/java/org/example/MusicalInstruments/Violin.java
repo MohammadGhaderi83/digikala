@@ -4,8 +4,8 @@ public class Violin extends MusicalInstruments{
     private String chinMaterial;
     private String topPlateMaterial;
 
-    public Violin(String name, String brand, double price, int number, String color, int weight, String material, String chinMaterial, String topPlateMaterial) {
-        super(name, brand, price, number, color, weight, material);
+    public Violin(String name, String brand, double price, int number, String color, String ID, int weight, String material, String chinMaterial, String topPlateMaterial) {
+        super(name, brand, price, number, color, ID, weight, material);
         this.chinMaterial = chinMaterial;
         this.topPlateMaterial = topPlateMaterial;
     }

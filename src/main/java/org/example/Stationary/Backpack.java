@@ -3,8 +3,9 @@ package org.example.Stationary;
 public class Backpack extends Stationary{
     private int numberOfExternalPockets;
     private int numberOfInternalPockets;
-    public Backpack(String name, String brand, double price, int number, String color, String material, String suitableFor, int numberOfExternalPockets, int numberOfInternalPockets) {
-        super(name, brand, price, number, color, material, suitableFor);
+
+    public Backpack(String name, String brand, double price, int number, String color, String ID, String material, String suitableFor, int numberOfExternalPockets, int numberOfInternalPockets) {
+        super(name, brand, price, number, color, ID, material, suitableFor);
         this.numberOfExternalPockets = numberOfExternalPockets;
         this.numberOfInternalPockets = numberOfInternalPockets;
     }

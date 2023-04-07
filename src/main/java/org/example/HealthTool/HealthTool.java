@@ -6,8 +6,8 @@ public abstract class HealthTool extends Product {
     private String supplyPower;
     private String used;
 
-    public HealthTool(String name, String brand, double price, int number, String color, String supplyPower, String used) {
-        super(name, brand, price, number, color);
+    public HealthTool(String name, String brand, double price, int number, String color, String ID, String supplyPower, String used) {
+        super(name, brand, price, number, color, ID);
         this.supplyPower = supplyPower;
         this.used = used;
     }

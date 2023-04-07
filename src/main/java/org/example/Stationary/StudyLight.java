@@ -4,8 +4,8 @@ public class StudyLight extends Stationary{
     private int bubbleDiameter;
     private int numberOfUsableLamps;
 
-    public StudyLight(String name, String brand, double price, int number, String color, String material, String suitableFor, int bubbleDiameter, int numberOfUsableLamps) {
-        super(name, brand, price, number, color, material, suitableFor);
+    public StudyLight(String name, String brand, double price, int number, String color, String ID, String material, String suitableFor, int bubbleDiameter, int numberOfUsableLamps) {
+        super(name, brand, price, number, color, ID, material, suitableFor);
         this.bubbleDiameter = bubbleDiameter;
         this.numberOfUsableLamps = numberOfUsableLamps;
     }
