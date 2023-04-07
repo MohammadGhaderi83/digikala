@@ -33,6 +33,15 @@ public class Shop {
     private String supportNumber = "021-61930000";
     private ArrayList<Admin> admins = new ArrayList<>();
     private ArrayList<User> users = new ArrayList<>();
+
+    public double getTotalProfit() {
+        return totalProfit;
+    }
+
+    public void setTotalProfit(double totalProfit) {
+        this.totalProfit = totalProfit;
+    }
+
     private ArrayList<Seller> sellers = new ArrayList<>();
     private double totalProfit;
     private ArrayList<Product> orders;
@@ -54,6 +63,7 @@ public class Shop {
     private ArrayList<StudyLight> studyLights = new ArrayList<>();
     private ArrayList<Car> cars = new ArrayList<>();
     private ArrayList<Truck> trucks = new ArrayList<>();
+    private ArrayList<Request> requests = new ArrayList<Request>();
 
     public String getName() {
         return name;
@@ -417,5 +427,21 @@ public class Shop {
     public void sellerProfile(String password)
     {
         System.out.println(searchSeller(password).get());
+    }
+    public void removeRequest(Request request)
+    {
+        requests.remove(request);
+    }
+
+    public ArrayList<Request> getRequests() {
+        return requests;
+    }
+
+    public void setRequests(ArrayList<Request> requests) {
+        this.requests = requests;
+    }
+    public void addRequest(Request request)
+    {
+        requests.add(request);
     }
 }

@@ -237,7 +237,9 @@ public class Main {
             } else if (userChoice == 5) {
                 System.out.println("how much do you want to increase?");
                 int amount = input.nextInt();
-                shop.increaseWallet(amount, user.getPassword());
+                Request request = new Request(user, amount);
+                shop.addRequest(request);
+                System.out.println("Wait until admin to confirm it!");
             }else if (userChoice == 6){
                 System.out.println("I am glad to have served");
                 runFlag = false;
@@ -852,7 +854,10 @@ public class Main {
                     "2- Update profile\n" +
                     "3- view users profile\n" +
                     "4- view sellers profile\n" +
-                    "5- Exit");
+                    "5- Add a new admin\n" +
+                    "6- Total profit\n" +
+                    "7- GetRequest\n" +
+                    "8- Exit");
             int choice = input.nextInt();
             if (choice == 1)
             {
@@ -897,6 +902,40 @@ public class Main {
                 String password = input.next();
                 shop.sellerProfile(password);
             } else if (choice == 5)
+            {
+                System.out.println("Enter a username: ");
+                String username = input.next();
+                System.out.println("Please enter a password: ");
+                String password = input.next();
+                System.out.println("PLease entre an email address: ");
+                String emailAddress = input.next();
+                Admin admin1 = new Admin(username, password, emailAddress);
+                shop.addAdmin(admin1);
+            } else if (choice == 6)
+            {
+                System.out.println(shop.getTotalProfit());
+            } else if (choice == 7)
+            {
+                for (Request request : shop.getRequests())
+                {
+                    System.out.println(request.getUser());
+                    System.out.println(request.getAmount());
+                    System.out.println("Do you want to confirm?(1-Y/2-N)");
+                    int userInput = input.nextInt();
+                    if (userInput == 1)
+                    {
+                        request.isChecked = true;
+                    } else if (userInput == 2)
+                    {
+                        request.isChecked = false;
+                    }
+                    shop.removeRequest(request);
+                    request.increase();
+                    break;
+                }
+
+            }
+            else if (choice == 8)
             {
                 System.out.println("I am glad to have served");
                 runFlag = false;

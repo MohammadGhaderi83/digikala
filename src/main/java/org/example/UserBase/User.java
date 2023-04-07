@@ -59,7 +59,7 @@ public class User extends UserBase{
 
     @Override
     public String toString() {
-        return "User{" +
+        return super.toString() + "->" + "User{" +
                 "emailAddress='" + emailAddress + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", address='" + address + '\'' +
