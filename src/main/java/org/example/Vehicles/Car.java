@@ -1,0 +1,25 @@
+package org.example.Vehicles;
+
+public class Car extends Vehicle{
+    private int seatsNumber;
+
+    public Car(String name, String brand, double price, int number, String color, int horsepower, int tankVolume, int seatsNumber) {
+        super(name, brand, price, number, color, horsepower, tankVolume);
+        this.seatsNumber = seatsNumber;
+    }
+
+    public int getSeatsNumber() {
+        return seatsNumber;
+    }
+
+    public void setSeatsNumber(int seatsNumber) {
+        this.seatsNumber = seatsNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "seatsNumber=" + seatsNumber +
+                '}';
+    }
+}
