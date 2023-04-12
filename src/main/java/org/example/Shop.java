@@ -151,7 +151,7 @@ public class Shop {
     public Optional<Admin> searchAdmin(String password)
     {
         return admins.stream().
-                filter(seller -> seller.getPassword().equals(password)).findFirst();
+                filter(admin -> admin.getPassword().equals(password)).findFirst();
     }
     public boolean addLaptop(Laptop laptop)
     {
@@ -443,5 +443,77 @@ public class Shop {
     public void addRequest(Request request)
     {
         requests.add(request);
+    }
+    public Optional<Laptop> searchLaptop(String name){
+        return laptops.stream().
+                filter(laptop -> laptop.getName().equals(name)).findFirst();
+    }
+    public Optional<Smartphone> searchSmartphone(String name){
+        return smartphones.stream().
+                filter(smartphone -> smartphone.getName().equals(name)).findFirst();
+    }
+    public Optional<Shoe> searchShoe(String name){
+        return shoes.stream().
+                filter(shoe -> shoe.getName().equals(name)).findFirst();
+    }
+    public Optional<Sock> searchSock(String name){
+        return socks.stream().
+                filter(sock -> sock.getName().equals(name)).findFirst();
+    }
+    public Optional<ElectricEngine> searchElectricEngine(String name){
+        return electricEngines.stream().
+                filter(electricEngine -> electricEngine.getName().equals(name)).findFirst();
+    }
+    public Optional<CarWash> searchCarWash(String name){
+        return carWashes.stream().
+                filter(carWash -> carWash.getName().equals(name)).findFirst();
+    }
+    public Optional<BloodSugarTestMachine> searchBloodSugarTestMachine(String name){
+        return bloodSugarTestMachines.stream().
+                filter(bloodSugarTestMachine -> bloodSugarTestMachine.getName().equals(name)).findFirst();
+    }
+    public Optional<Sphygmomanometer> searchSphygmomanometer(String name){
+        return sphygmomanometers.stream().
+                filter(sphygmomanometer -> sphygmomanometer.getName().equals(name)).findFirst();
+    }
+    public Optional<DishWasher> searchDishWasher(String name){
+        return dishWashers.stream().
+                filter(dishWasher -> dishWasher.getName().equals(name)).findFirst();
+    }
+    public Optional<VacuumCleaner> searchVacuumCleaner(String name){
+        return vacuumCleaners.stream().
+                filter(vacuumCleaner -> vacuumCleaner.getName().equals(name)).findFirst();
+    }
+    public Optional<Guitar> searchGuitar(String name){
+        return guitars.stream().
+                filter(guitar -> guitar.getName().equals(name)).findFirst();
+    }
+    public Optional<Violin> searchViolin(String name){
+        return violins.stream().
+                filter(violin -> violin.getName().equals(name)).findFirst();
+    }
+    public Optional<Hammer> searchHammer(String name){
+        return hammers.stream().
+                filter(hammer -> hammer.getName().equals(name)).findFirst();
+    }
+    public Optional<Saw> searchSaw(String name){
+        return saws.stream().
+                filter(saw -> saw.getName().equals(name)).findFirst();
+    }
+    public Optional<Backpack> searchBackpack(String name){
+        return backpacks.stream().
+                filter(backpack -> backpack.getName().equals(name)).findFirst();
+    }
+    public Optional<StudyLight> searchStudyLight(String name){
+        return studyLights.stream().
+                filter(studyLight -> studyLight.getName().equals(name)).findFirst();
+    }
+    public Optional<Car> searchCar(String name){
+        return cars.stream().
+                filter(car -> car.getName().equals(name)).findFirst();
+    }
+    public Optional<Truck> searchTruck(String name){
+        return trucks.stream().
+                filter(truck -> truck.getName().equals(name)).findFirst();
     }
 }

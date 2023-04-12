@@ -48,7 +48,8 @@ public class Main {
                     "2- Sign Up\n" +
                     "3- About shop\n" +
                     "4- View products\n" +
-                    "5- Exit");
+                    "5- Search a product\n" +
+                    "6- Exit");
             int choice = input.nextInt();
             if (choice == 1)
             {
@@ -207,9 +208,52 @@ public class Main {
                 }
                 if (counter == 18)
                 {
-                    System.out.println(" There is no product in the shop as it looks :(");
+                    System.out.println("There is no product in the shop as it looks :(");
                 }
             } else if (choice == 5) {
+                System.out.println("Please enter the product name: ");
+                String productName = input.next();
+                if (!shop.searchLaptop(productName).isEmpty())
+                {
+                    System.out.println(shop.searchLaptop(productName));
+                } else if (!shop.searchSmartphone(productName).isEmpty()){
+                    System.out.println(shop.searchSmartphone(productName));
+                } else if (!shop.searchShoe(productName).isEmpty()){
+                    System.out.println(shop.searchShoe(productName));
+                } else if (!shop.searchSock(productName).isEmpty()){
+                    System.out.println(shop.searchSock(productName));
+                } else if (!shop.searchBloodSugarTestMachine(productName).isEmpty()){
+                    System.out.println(shop.searchBloodSugarTestMachine(productName));
+                } else if (!shop.searchSphygmomanometer(productName).isEmpty()){
+                    System.out.println(shop.searchSphygmomanometer(productName));
+                } else if (!shop.searchElectricEngine(productName).isEmpty()){
+                    System.out.println(shop.searchElectricEngine(productName));
+                } else if (!shop.searchCarWash(productName).isEmpty()){
+                    System.out.println(shop.searchCarWash(productName));
+                } else if (!shop.searchDishWasher(productName).isEmpty()){
+                    System.out.println(shop.searchDishWasher(productName));
+                } else if (!shop.searchSaw(productName).isEmpty()){
+                    System.out.println(shop.searchSaw(productName));
+                } else if (!shop.searchVacuumCleaner(productName).isEmpty()){
+                    System.out.println(shop.searchVacuumCleaner(productName));
+                } else if (!shop.searchGuitar(productName).isEmpty()){
+                    System.out.println(shop.searchGuitar(productName));
+                } else if (!shop.searchViolin(productName).isEmpty()){
+                    System.out.println(shop.searchViolin(productName));
+                } else if (!shop.searchHammer(productName).isEmpty()){
+                    System.out.println(shop.searchHammer(productName));
+                } else if (!shop.searchBackpack(productName).isEmpty()){
+                    System.out.println(shop.searchBackpack(productName));
+                } else if (!shop.searchStudyLight(productName).isEmpty()){
+                    System.out.println(shop.searchStudyLight(productName));
+                } else if (!shop.searchCar(productName).isEmpty()){
+                    System.out.println(shop.searchCar(productName));
+                } else if (!shop.searchTruck(productName).isEmpty()){
+                    System.out.println(shop.searchTruck(productName));
+                } else {
+                    System.out.println("There is no product according to your search :((");
+                }
+            } else if (choice == 6) {
                 runFlag = false;
                 System.out.println("DigiKala is glad to have served");
             } else {
@@ -341,7 +385,8 @@ public class Main {
                     "3- Show products\n" +
                     "4- Log out\n" +
                     "5- Increase wallet\n"+
-                    "6- Back");
+                    "6- Search a product\n"+
+                    "7- Back");
             int userChoice = input.nextInt();
             if (userChoice == 1)
             {
@@ -548,7 +593,50 @@ public class Main {
                 Request request = new Request(user, amount);
                 shop.addRequest(request);
                 System.out.println("Wait until admin to confirm it!");
-            }else if (userChoice == 6){
+            } else if (userChoice == 6){
+                System.out.println("Please enter the product name: ");
+                String productName = input.next();
+                if (!shop.searchLaptop(productName).isEmpty())
+                {
+                    System.out.println(shop.searchLaptop(productName));
+                } else if (!shop.searchSmartphone(productName).isEmpty()){
+                    System.out.println(shop.searchSmartphone(productName));
+                } else if (!shop.searchShoe(productName).isEmpty()){
+                    System.out.println(shop.searchShoe(productName));
+                } else if (!shop.searchSock(productName).isEmpty()){
+                    System.out.println(shop.searchSock(productName));
+                } else if (!shop.searchBloodSugarTestMachine(productName).isEmpty()){
+                    System.out.println(shop.searchBloodSugarTestMachine(productName));
+                } else if (!shop.searchSphygmomanometer(productName).isEmpty()){
+                    System.out.println(shop.searchSphygmomanometer(productName));
+                } else if (!shop.searchElectricEngine(productName).isEmpty()){
+                    System.out.println(shop.searchElectricEngine(productName));
+                } else if (!shop.searchCarWash(productName).isEmpty()){
+                    System.out.println(shop.searchCarWash(productName));
+                } else if (!shop.searchDishWasher(productName).isEmpty()){
+                    System.out.println(shop.searchDishWasher(productName));
+                } else if (!shop.searchSaw(productName).isEmpty()){
+                    System.out.println(shop.searchSaw(productName));
+                } else if (!shop.searchVacuumCleaner(productName).isEmpty()){
+                    System.out.println(shop.searchVacuumCleaner(productName));
+                } else if (!shop.searchGuitar(productName).isEmpty()){
+                    System.out.println(shop.searchGuitar(productName));
+                } else if (!shop.searchViolin(productName).isEmpty()){
+                    System.out.println(shop.searchViolin(productName));
+                } else if (!shop.searchHammer(productName).isEmpty()){
+                    System.out.println(shop.searchHammer(productName));
+                } else if (!shop.searchBackpack(productName).isEmpty()){
+                    System.out.println(shop.searchBackpack(productName));
+                } else if (!shop.searchStudyLight(productName).isEmpty()){
+                    System.out.println(shop.searchStudyLight(productName));
+                } else if (!shop.searchCar(productName).isEmpty()){
+                    System.out.println(shop.searchCar(productName));
+                } else if (!shop.searchTruck(productName).isEmpty()){
+                    System.out.println(shop.searchTruck(productName));
+                } else {
+                    System.out.println("There is no product according to your search :((");
+                }
+            } else if (userChoice == 7){
                 System.out.println("I am glad to have served");
                 runFlag = false;
             } else {
