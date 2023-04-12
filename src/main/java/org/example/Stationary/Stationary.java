@@ -30,7 +30,7 @@ public abstract class Stationary extends Product {
 
     @Override
     public String toString() {
-        return "Stationary{" +
+        return super.toString() + "->" + "Stationary{" +
                 "material='" + material + '\'' +
                 ", suitableFor='" + suitableFor + '\'' +
                 '}';

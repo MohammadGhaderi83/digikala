@@ -21,6 +21,7 @@ import org.example.UserBase.Seller;
 import org.example.UserBase.User;
 import org.example.Vehicles.Car;
 import org.example.Vehicles.Truck;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Scanner;
 
@@ -42,11 +43,12 @@ public class Main {
         boolean runFlag = true;
         while (runFlag)
         {
-            System.out.println("Please choose(1-3)\n" +
+            System.out.println("Please choose(1-5)\n" +
                     "1- Sign in\n" +
                     "2- Sign Up\n" +
                     "3- About shop\n" +
-                    "4- exit");
+                    "4- View products\n" +
+                    "5- Exit");
             int choice = input.nextInt();
             if (choice == 1)
             {
@@ -57,9 +59,159 @@ public class Main {
                 System.out.println("Name: " + shop.getName());
                 System.out.println("Web address: " + shop.getWebAddress());
                 System.out.println("Support number: " + shop.getSupportNumber());
-            }else if (choice == 4) {
+            } else if (choice == 4) {
+                int counter = 0;
+                if (shop.getLaptops().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getLaptops());
+                }
+                if (shop.getSmartphones().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getSmartphones());
+                }
+                if (shop.getShoes().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getShoes());
+                }
+                if (shop.getSocks().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getSocks());
+                }
+                if (shop.getElectricEngines().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getElectricEngines());
+                }
+                if (shop.getCarWashes().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getCarWashes());
+                }
+                if (shop.getBloodSugarTestMachines().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getBloodSugarTestMachines());
+                }
+                if (shop.getSphygmomanometers().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getSphygmomanometers());
+                }
+                if (shop.getDishWashers().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getDishWashers());
+                }
+                if (shop.getVacuumCleaners().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getVacuumCleaners());
+                }
+                if (shop.getGuitars().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getGuitars());
+                }
+                if (shop.getViolins().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getViolins());
+                }
+                if (shop.getHammers().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getHammers());
+                }
+                if (shop.getSaws().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getSaws());
+                }
+                if (shop.getBackpacks().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getBackpacks());
+                }
+                if (shop.getStudyLights().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getStudyLights());
+                }
+                if (shop.getCars().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getCars());
+                }
+                if (shop.getTrucks().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getTrucks());
+                }
+                if (counter == 18)
+                {
+                    System.out.println(" There is no product in the shop as it looks :(");
+                }
+            } else if (choice == 5) {
                 runFlag = false;
-                System.out.println("I am glad to have served");
+                System.out.println("DigiKala is glad to have served");
             } else {
                 System.out.println("Invalid Input! please try again.");
             }
@@ -71,9 +223,9 @@ public class Main {
         while (runFlag)
         {
             System.out.println("What kind of account do you want to make?(1-3)\n" +
-                    "1- As a User\n" +
-                    "2- As a Seller\n" +
-                    "3- Exit");
+                    "1- User account\n" +
+                    "2- Seller account\n" +
+                    "3- Back to menu");
             int userChoice = input.nextInt();
             if (userChoice == 1)
             {
@@ -81,21 +233,39 @@ public class Main {
                 String username = input.next();
                 System.out.println("Please enter a password: ");
                 String password = input.next();
+                System.out.println("Please confirm your password: ");
+                String confirmPassword = input.next();
                 System.out.println("Please enter an email address: ");
                 String emailAddress = input.next();
                 System.out.println("Please enter a phone number: ");
                 String phoneNumber = input.next();
                 System.out.println("Please enter an address: ");
                 String address = input.next();
-                User user = new User(username, password, emailAddress, phoneNumber, address,0);
-                String message =  shop.createAccountUser(user) ? username + "successfully added!" : "there is exist a password same you have entered!";
+                if (password.equals(confirmPassword))
+                {
+                    User user = new User(username, password, emailAddress, phoneNumber, address,0);
+                    String message =  shop.createAccountUser(user) ? username + "successfully added!" : "there is exist a password same you have entered!";
+                    System.out.println(message);
+                    userMenu(user);
+                } else {
+                    System.out.println("Passwords doesn't match! please try again.");
+                }
             } else if (userChoice == 2){
                 System.out.println("Please enter your company name: ");
                 String username = input.next();
                 System.out.println("Please enter a password: ");
                 String password = input.next();
-                Seller seller = new Seller(username, password);
-                String message = shop.createAccountSeller(seller) ? username + "successfully added!" : "there is exist a password same you have entered!";
+                System.out.println("Please confirm your password: ");
+                String confirmPassword = input.next();
+                if (password.equals(confirmPassword))
+                {
+                    Seller seller = new Seller(username, password);
+                    String message = shop.createAccountSeller(seller) ? username + "successfully added!" : "there is exist a password same you have entered!";
+                    System.out.println(message);
+                    sellerMenu(seller);
+                } else {
+                    System.out.println("Passwords don't match! please try again.");
+                }
             } else if (userChoice == 3){
                 System.out.println("I am glad to have served");
                 runFlag = false;
@@ -110,47 +280,47 @@ public class Main {
         boolean runFlag = true;
         while(runFlag)
         {
-            System.out.println("You want to sign up as a(1-4):\n" +
+            System.out.println("You want to sign up as a\\an(1-4):\n" +
                     "1- User\n" +
                     "2- Seller\n" +
                     "3- Admin\n" +
-                    "4- Exit");
+                    "4- Back to menu");
             int userChoice = input.nextInt();
             if (userChoice == 1){
                 System.out.println("Please enter your username: ");
                 String username = input.next();
-                System.out.println("Please enter a password: ");
+                System.out.println("Please enter your password: ");
                 String password = input.next();
                 User user = shop.searchUser(password).get();
                 if (user.getUsername().equals(username))
                 {
                     userMenu(user);
                 } else {
-                    System.out.println("Wrong username!");
+                    System.out.println("Wrong username! Please try again");
                 }
             } else if (userChoice == 2){
                 System.out.println("Please enter your company name: ");
                 String username = input.next();
-                System.out.println("Please enter a password: ");
+                System.out.println("Please enter your password: ");
                 String password = input.next();
                 Seller seller = shop.searchSeller(password).get();
                 if (seller.getUsername().equals(username))
                 {
                     sellerMenu(seller);
                 } else {
-                    System.out.println("Wrong company name!");
+                    System.out.println("Wrong company name! Please try again");
                 }
             } else if (userChoice == 3){
                 System.out.println("Please enter your username: ");
                 String username = input.next();
-                System.out.println("Please enter a password: ");
+                System.out.println("Please enter your password: ");
                 String password = input.next();
                 Admin admin = shop.searchAdmin(password).get();
                 if (admin.getUsername().equals(username))
                 {
                     adminMenu(admin);
                 } else {
-                    System.out.println("Wrong username!");
+                    System.out.println("Wrong username! Please try again");
                 }
             }else if(userChoice == 4){
                 System.out.println("I am glad to have served");
@@ -162,6 +332,7 @@ public class Main {
     }
     public static void userMenu(User user)
     {
+        System.out.println("Hi " + user.getUsername() + " welcome to your shop");
         boolean runFlag = true;
         while(runFlag)
         {
@@ -170,7 +341,7 @@ public class Main {
                     "3- Show products\n" +
                     "4- Log out\n" +
                     "5- Increase wallet\n"+
-                    "6- Exit");
+                    "6- Back");
             int userChoice = input.nextInt();
             if (userChoice == 1)
             {
@@ -183,7 +354,7 @@ public class Main {
                     System.out.println("What do you want to change?\n" +
                             "1- Change username\n" +
                             "2- Change password\n" +
-                            "3- Exit");
+                            "3- Back");
                     int userChoice1 = input.nextInt();
                     if (userChoice1 == 1)
                     {
@@ -195,11 +366,18 @@ public class Main {
                     {
                         System.out.println("Please enter a new password");
                         String newPassword = input.next();
-                        if (shop.userLogin(newPassword))
+                        System.out.println("Please confirm your new password: ");
+                        String confirmPassword = input.next();
+                        if (newPassword.equals(confirmPassword))
                         {
-                            System.out.println("There is exist a password like this! try again");
+                            if (shop.userLogin(newPassword))
+                            {
+                                System.out.println("There is exist a password like this! try again");
+                            } else {
+                                System.out.println("password changed successfully");
+                            }
                         } else {
-                            System.out.println("password changed successfully");
+                            System.out.println("Passwords don't match! please try again.");
                         }
                     } else if (userChoice1 == 3)
                     {
@@ -211,25 +389,155 @@ public class Main {
                 }
 
             } else if (userChoice == 3) {
-                System.out.println(shop.getLaptops()+"\n"+
-                        shop.getSmartphones()+"\n"+
-                        shop.getShoes()+"\n"+
-                        shop.getSocks()+"\n"+
-                        shop.getElectricEngines()+"\n"+
-                        shop.getCarWashes()+"\n"+
-                        shop.getBloodSugarTestMachines()+"\n"+
-                        shop.getSphygmomanometers()+"\n"+
-                        shop.getDishWashers()+"\n"+
-                        shop.getVacuumCleaners()+"\n"+
-                        shop.getGuitars()+"\n"+
-                        shop.getViolins()+"\n"+
-                        shop.getHammers()+"\n"+
-                        shop.getSaws()+"\n"+
-                        shop.getBackpacks()+"\n"+
-                        shop.getStudyLights()+"\n"+
-                        shop.getCars()+"\n"+
-                        shop.getCars()+"\n"+
-                        shop.getTrucks()+"\n");
+                int counter = 0;
+                if (shop.getLaptops().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getLaptops());
+                }
+                if (shop.getSmartphones().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getSmartphones());
+                }
+                if (shop.getShoes().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getShoes());
+                }
+                if (shop.getSocks().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getSocks());
+                }
+                if (shop.getElectricEngines().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getElectricEngines());
+                }
+                if (shop.getCarWashes().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getCarWashes());
+                }
+                if (shop.getBloodSugarTestMachines().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getBloodSugarTestMachines());
+                }
+                if (shop.getSphygmomanometers().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getSphygmomanometers());
+                }
+                if (shop.getDishWashers().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getDishWashers());
+                }
+                if (shop.getVacuumCleaners().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getVacuumCleaners());
+                }
+                if (shop.getGuitars().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getGuitars());
+                }
+                if (shop.getViolins().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getViolins());
+                }
+                if (shop.getHammers().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getHammers());
+                }
+                if (shop.getSaws().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getSaws());
+                }
+                if (shop.getBackpacks().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getBackpacks());
+                }
+                if (shop.getStudyLights().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getStudyLights());
+                }
+                if (shop.getCars().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getCars());
+                }
+                if (shop.getTrucks().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(shop.getTrucks());
+                }
+                if (counter == 18)
+                {
+                    System.out.println("Dear " + user.getUsername() + " there is no product in the shop as it looks :(");
+                }
             } else if (userChoice == 4) {
                 String message = shop.userLogout(user.getPassword()) ? "Done!" : "it didn't work";
                 System.out.println(message);
@@ -248,17 +556,17 @@ public class Main {
             }
         }
     }
-    public static void sellerMenu(Seller seller)
+    public static void sellerMenu(@NotNull Seller seller)
     {
         System.out.println("Welcome dear " + seller.getUsername());
         boolean runFlag = true;
         while(runFlag)
         {
             System.out.println("1- My profile\n" +
-                    "2- update profile\n" +
-                    "3- view products(myself)\n" +
-                    "4- add product\n" +
-                    "5- exit");
+                    "2- Update profile\n" +
+                    "3- List of available products\n" +
+                    "4- Add product\n" +
+                    "5- Back");
             int choice = input.nextInt();
             if (choice == 1)
             {
@@ -268,7 +576,7 @@ public class Main {
                 System.out.println("What do you want to change?\n" +
                         "1- Change username\n" +
                         "2- Change password\n" +
-                        "3- Exit");
+                        "3- Back");
                 int userChoice = input.nextInt();
                 if (userChoice == 1)
                 {
@@ -280,11 +588,18 @@ public class Main {
                 {
                     System.out.println("Please enter a new password");
                     String newPassword = input.next();
-                    if (shop.adminLogin(seller.getPassword()))
+                    System.out.println("Please confirm your new password: ");
+                    String confirmPassword = input.next();
+                    if (newPassword.equals(confirmPassword))
                     {
-                        System.out.println("There is exist a password like this! try again");
+                        if (shop.adminLogin(seller.getPassword()))
+                        {
+                            System.out.println("There is exist a password like this! try again");
+                        } else {
+                            System.out.println("password changed successfully");
+                        }
                     } else {
-                        System.out.println("password changed successfully");
+                        System.out.println("Passwords don't match! please try again.");
                     }
                 } else if (userChoice == 3)
                 {
@@ -295,25 +610,155 @@ public class Main {
                 }
             } else if (choice == 3)
             {
-                System.out.println(shop.getLaptops()+"\n"+
-                        shop.getSmartphones()+"\n"+
-                        shop.getShoes()+"\n"+
-                        shop.getSocks()+"\n"+
-                        shop.getElectricEngines()+"\n"+
-                        shop.getCarWashes()+"\n"+
-                        shop.getBloodSugarTestMachines()+"\n"+
-                        shop.getSphygmomanometers()+"\n"+
-                        shop.getDishWashers()+"\n"+
-                        shop.getVacuumCleaners()+"\n"+
-                        shop.getGuitars()+"\n"+
-                        shop.getViolins()+"\n"+
-                        shop.getHammers()+"\n"+
-                        shop.getSaws()+"\n"+
-                        shop.getBackpacks()+"\n"+
-                        shop.getStudyLights()+"\n"+
-                        shop.getCars()+"\n"+
-                        shop.getCars()+"\n"+
-                        shop.getTrucks()+"\n");
+                int counter = 0;
+                if (seller.getLaptops().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(seller.getLaptops());
+                }
+                if (seller.getSmartphones().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(seller.getSmartphones());
+                }
+                if (seller.getShoes().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(seller.getShoes());
+                }
+                if (seller.getSocks().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(seller.getSocks());
+                }
+                if (seller.getElectricEngines().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(seller.getElectricEngines());
+                }
+                if (seller.getCarWashes().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(seller.getCarWashes());
+                }
+                if (seller.getBloodSugarTestMachines().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(seller.getBloodSugarTestMachines());
+                }
+                if (seller.getSphygmomanometers().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(seller.getSphygmomanometers());
+                }
+                if (seller.getDishWashers().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(seller.getDishWashers());
+                }
+                if (seller.getVacuumCleaners().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(seller.getVacuumCleaners());
+                }
+                if (seller.getGuitars().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(seller.getGuitars());
+                }
+                if (seller.getViolins().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(seller.getViolins());
+                }
+                if (seller.getHammers().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(seller.getHammers());
+                }
+                if (seller.getSaws().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(seller.getSaws());
+                }
+                if (seller.getBackpacks().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(seller.getBackpacks());
+                }
+                if (shop.getStudyLights().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(seller.getStudyLights());
+                }
+                if (seller.getCars().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(seller.getCars());
+                }
+                if (seller.getTrucks().isEmpty())
+                {
+                    counter++;
+                }
+                else
+                {
+                    System.out.println(seller.getTrucks());
+                }
+                if (counter == 18)
+                {
+                    System.out.println("Dear " + seller.getUsername() + "\nThere is no product in the shop as it looks :(");
+                }
             } else if (choice == 4)
             {
                 System.out.println("To witch category you want to add:\n" +
@@ -325,7 +770,7 @@ public class Main {
                         "6- Musical instruments\n" +
                         "7- Non electronic tools\n" +
                         "8- Stationary\n" +
-                        "9- Vehicle\n");
+                        "9- Vehicle");
                 int sellerChoice1 = input.nextInt();
                 if (sellerChoice1 == 1)
                 {
@@ -356,6 +801,7 @@ public class Main {
                         Shoe shoe = new Shoe(name, brand, price, number, color, ID, material, genre, isItShoeLace);
                         shop.addSho(shoe);
                         seller.addSho(shoe);
+                        System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     } else if (sellerChoice2 == 2)
                     {
                         System.out.println("Please enter a name: ");
@@ -379,6 +825,7 @@ public class Main {
                         Sock sock = new Sock(name, brand, price, number, color, ID, material, genre, size);
                         shop.addSock(sock);
                         seller.addSock(sock);
+                        System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     }
                 } else if (sellerChoice1 == 2)
                 {
@@ -388,15 +835,15 @@ public class Main {
                     int sellerChoice2 = input.nextInt();
                     if (sellerChoice2 == 1)
                     {
-                        System.out.println("Please enter a name: ");
+                        System.out.println("Please enter it's name: ");
                         String name = input.next();
-                        System.out.println("Please enter a brand: ");
+                        System.out.println("Please enter it's brand: ");
                         String brand = input.next();
-                        System.out.println("Please enter it's price: ");
+                        System.out.println("Please enter it's price(Rial): ");
                         double price = input.nextDouble();
-                        System.out.println("Please enter the amount of it: ");
+                        System.out.println("How many item you want to add? ");
                         int number = input.nextInt();
-                        System.out.println("Please enter the color: ");
+                        System.out.println("Please enter it's color: ");
                         String color = input.next();
                         System.out.println("Please enter the ID: ");
                         String ID = input.next();
@@ -411,6 +858,7 @@ public class Main {
                         Laptop laptop = new Laptop(name, brand, price, number, color, ID, processor, storage, RAM, weight);
                         shop.addLaptop(laptop);
                         seller.addLaptop(laptop);
+                        System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     } else if (sellerChoice2 == 2)
                     {
                         System.out.println("Please enter a name: ");
@@ -436,6 +884,7 @@ public class Main {
                         Smartphone smartphone = new Smartphone(name, brand, price, number, color, ID, processor, storage, cameraQuality, numberOfCameras);
                         shop.addSmartphones(smartphone);
                         seller.addSmartphones(smartphone);
+                        System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     }
                 } else if (sellerChoice1 == 3)
                 {
@@ -468,6 +917,7 @@ public class Main {
                         CarWash carWash = new CarWash(name, brand, price, number, color, ID, weight, powerConsumption, maximumEnterTemperature, hoseLength);
                         shop.addCarWash(carWash);
                         seller.addCarWash(carWash);
+                        System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     } else if (sellerChoice2 == 2)
                     {
                         System.out.println("Please enter a name: ");
@@ -493,6 +943,7 @@ public class Main {
                         ElectricEngine electricEngine = new ElectricEngine(name, brand, price, number, color, ID, weight, powerConsumption, fuelType, enginePower);
                         shop.addElectricEngine(electricEngine);
                         seller.addElectricEngine(electricEngine);
+                        System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     }
                 } else if (sellerChoice1 == 4)
                 {
@@ -525,6 +976,7 @@ public class Main {
                         BloodSugarTestMachine bloodSugarTestMachine = new BloodSugarTestMachine(name, brand, price, number, color, ID,supplyPower, used, minimumBloodRequired, numberOfTestStrips);
                         shop.addBloodSugarTestMachine(bloodSugarTestMachine);
                         seller.addBloodSugarTestMachine(bloodSugarTestMachine);
+                        System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     } else if (sellerChoice2 == 2)
                     {
                         System.out.println("Please enter a name: ");
@@ -550,6 +1002,7 @@ public class Main {
                         Sphygmomanometer sphygmomanometer = new Sphygmomanometer(name, brand, price, number, color, ID,supplyPower, used, suitableArmSize, displayType);
                         shop.addSphygmomanometer(sphygmomanometer);
                         seller.addSphygmomanometer(sphygmomanometer);
+                        System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     }
                 } else if(sellerChoice1 == 5)
                 {
@@ -582,6 +1035,7 @@ public class Main {
                         DishWasher dishWasher = new DishWasher(name, brand, price, number, color, ID, volume, energyConsumptionChart, capacity, numOfBaskets);
                         shop.addDishWasher(dishWasher);
                         seller.addDishWasher(dishWasher);
+                        System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     } else if(sellerChoice2 == 2)
                     {
                         System.out.println("Please enter a name: ");
@@ -607,6 +1061,7 @@ public class Main {
                         VacuumCleaner vacuumCleaner = new VacuumCleaner(name, brand, price, number, color, ID, volume, energyConsumptionChart, enginePower, powerCableLength);
                         shop.addVacuumCleaner(vacuumCleaner);
                         seller.addVacuumCleaner(vacuumCleaner);
+                        System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     }
                 } else if (sellerChoice1 == 6)
                 {
@@ -639,6 +1094,7 @@ public class Main {
                         Guitar guitar = new Guitar(name, brand, price, number, color, ID, weight, material, wiresNumber, bowlThickness);
                         shop.addGuitar(guitar);
                         seller.addGuitar(guitar);
+                        System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     } else if (sellerChoice2 == 2)
                     {
                         System.out.println("Please enter a name: ");
@@ -664,6 +1120,7 @@ public class Main {
                         Violin violin = new Violin(name, brand, price, number, color, ID, weight, material, chinMaterial, topPlateMaterial);
                         shop.addViolin(violin);
                         seller.addViolin(violin);
+                        System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     }
                 } else if (sellerChoice1 == 7)
                 {
@@ -694,6 +1151,7 @@ public class Main {
                         Hammer hammer = new Hammer(name, brand, price, number, color, ID, material, weight, crossSectionalSize);
                         shop.addHammer(hammer);
                         seller.addHammer(hammer);
+                        System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     } else if (sellerChoice2 == 2)
                     {
                         System.out.println("Please enter a name: ");
@@ -719,6 +1177,7 @@ public class Main {
                         Saw saw = new Saw(name, brand, price, number, color, ID, material, weight,ironBladeLength, used);
                         shop.addSaw(saw);
                         seller.addSaw(saw);
+                        System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     }
                 } else if (sellerChoice1 == 8)
                 {
@@ -751,6 +1210,7 @@ public class Main {
                         Backpack backpack = new Backpack(name, brand, price, number, color, ID, material, used,numOfExternalPockets,numOfInternalPockets);
                         shop.addBackpack(backpack);
                         seller.addBackpack(backpack);
+                        System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     } else if (sellerChoice2 == 2)
                     {
                         System.out.println("Please enter a name: ");
@@ -776,6 +1236,7 @@ public class Main {
                         StudyLight studyLight = new StudyLight(name, brand, price, number, color, ID, material, used, bubbleDiameter, numOfUsableLamps);
                         shop.addStudyLight(studyLight);
                         seller.addStudyLight(studyLight);
+                        System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     }
                 } else if (sellerChoice1 == 9)
                 {
@@ -806,6 +1267,7 @@ public class Main {
                         Car car = new Car(name, brand, price, number, color, ID,horsePower, tankVolume, seatsNumber);
                         shop.addCar(car);
                         seller.addCar(car);
+                        System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     } else if (sellerChoice2 == 2)
                     {
                         System.out.println("Please enter a name: ");
@@ -831,6 +1293,7 @@ public class Main {
                         Truck truck = new Truck(name, brand, price, number, color, ID,horsePower, tankVolume, numOfWheels, doseItHaveBed);
                         shop.addTrucks(truck);
                         seller.addTrucks(truck);
+                        System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     }
                 } else{
                     System.out.println("Invalid input");
@@ -856,8 +1319,8 @@ public class Main {
                     "4- view sellers profile\n" +
                     "5- Add a new admin\n" +
                     "6- Total profit\n" +
-                    "7- GetRequest\n" +
-                    "8- Exit");
+                    "7- Request list\n" +
+                    "8- Back");
             int choice = input.nextInt();
             if (choice == 1)
             {
@@ -866,7 +1329,7 @@ public class Main {
                 System.out.println("What do you want to change?\n" +
                         "1- Change username\n" +
                         "2- Change password\n" +
-                        "3- Exit");
+                        "3- Back");
                 int userChoice = input.nextInt();
                 if (userChoice == 1)
                 {
@@ -878,11 +1341,18 @@ public class Main {
                 {
                     System.out.println("Please enter a new password");
                     String newPassword = input.next();
-                    if (shop.adminLogin(admin.getPassword()))
+                    System.out.println("Please confirm your new password: ");
+                    String confirmPassword = input.next();
+                    if (newPassword.equals(confirmPassword))
                     {
-                        System.out.println("There is exist a password like this! try again");
+                        if (shop.adminLogin(admin.getPassword()))
+                        {
+                            System.out.println("There is exist a password like this! try again");
+                        } else {
+                            System.out.println("password changed successfully");
+                        }
                     } else {
-                        System.out.println("password changed successfully");
+                        System.out.println("Passwords don't match! please try again.");
                     }
                 } else if (userChoice == 3)
                 {
@@ -907,10 +1377,17 @@ public class Main {
                 String username = input.next();
                 System.out.println("Please enter a password: ");
                 String password = input.next();
+                System.out.println("PLease confirm your password: ");
+                String confirmPassword = input.next();
                 System.out.println("PLease entre an email address: ");
                 String emailAddress = input.next();
-                Admin admin1 = new Admin(username, password, emailAddress);
-                shop.addAdmin(admin1);
+                if (password.equals(confirmPassword))
+                {
+                    Admin admin1 = new Admin(username, password, emailAddress);
+                    shop.addAdmin(admin1);
+                } else {
+                    System.out.println("Passwords don't match! PLease try again.");
+                }
             } else if (choice == 6)
             {
                 System.out.println(shop.getTotalProfit());
@@ -918,9 +1395,9 @@ public class Main {
             {
                 for (Request request : shop.getRequests())
                 {
-                    System.out.println(request.getUser());
-                    System.out.println(request.getAmount());
-                    System.out.println("Do you want to confirm?(1-Y/2-N)");
+                    System.out.println("Person(User \\ Seller): " + request.getUser());
+                    System.out.println("Amount(Rial): " + request.getAmount());
+                    System.out.println("Do you want to confirm?(1-Yes/2-No)");
                     int userInput = input.nextInt();
                     if (userInput == 1)
                     {
@@ -933,7 +1410,6 @@ public class Main {
                     request.increase();
                     break;
                 }
-
             }
             else if (choice == 8)
             {

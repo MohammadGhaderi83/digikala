@@ -23,7 +23,6 @@ import org.example.Vehicles.Truck;
 import java.util.ArrayList;
 
 public class Seller extends UserBase{
-    private ArrayList<Product> listOfAvailableProducts;
     private double wallet;
     private ArrayList<Laptop> laptops = new ArrayList<>();
     private ArrayList<Smartphone> smartphones = new ArrayList<>();
@@ -44,10 +43,161 @@ public class Seller extends UserBase{
     private ArrayList<Car> cars = new ArrayList<>();
     private ArrayList<Truck> trucks = new ArrayList<>();
 
+    public double getWallet() {
+        return wallet;
+    }
+
+    public void setWallet(double wallet) {
+        this.wallet = wallet;
+    }
+
+    public ArrayList<Laptop> getLaptops() {
+        return laptops;
+    }
+
+    public void setLaptops(ArrayList<Laptop> laptops) {
+        this.laptops = laptops;
+    }
+
+    public ArrayList<Smartphone> getSmartphones() {
+        return smartphones;
+    }
+
+    public void setSmartphones(ArrayList<Smartphone> smartphones) {
+        this.smartphones = smartphones;
+    }
+
+    public ArrayList<Shoe> getShoes() {
+        return shoes;
+    }
+
+    public void setShoes(ArrayList<Shoe> shoes) {
+        this.shoes = shoes;
+    }
+
+    public ArrayList<Sock> getSocks() {
+        return socks;
+    }
+
+    public void setSocks(ArrayList<Sock> socks) {
+        this.socks = socks;
+    }
+
+    public ArrayList<ElectricEngine> getElectricEngines() {
+        return electricEngines;
+    }
+
+    public void setElectricEngines(ArrayList<ElectricEngine> electricEngines) {
+        this.electricEngines = electricEngines;
+    }
+
+    public ArrayList<CarWash> getCarWashes() {
+        return carWashes;
+    }
+
+    public void setCarWashes(ArrayList<CarWash> carWashes) {
+        this.carWashes = carWashes;
+    }
+
+    public ArrayList<BloodSugarTestMachine> getBloodSugarTestMachines() {
+        return bloodSugarTestMachines;
+    }
+
+    public void setBloodSugarTestMachines(ArrayList<BloodSugarTestMachine> bloodSugarTestMachines) {
+        this.bloodSugarTestMachines = bloodSugarTestMachines;
+    }
+
+    public ArrayList<Sphygmomanometer> getSphygmomanometers() {
+        return sphygmomanometers;
+    }
+
+    public void setSphygmomanometers(ArrayList<Sphygmomanometer> sphygmomanometers) {
+        this.sphygmomanometers = sphygmomanometers;
+    }
+
+    public ArrayList<DishWasher> getDishWashers() {
+        return dishWashers;
+    }
+
+    public void setDishWashers(ArrayList<DishWasher> dishWashers) {
+        this.dishWashers = dishWashers;
+    }
+
+    public ArrayList<VacuumCleaner> getVacuumCleaners() {
+        return vacuumCleaners;
+    }
+
+    public void setVacuumCleaners(ArrayList<VacuumCleaner> vacuumCleaners) {
+        this.vacuumCleaners = vacuumCleaners;
+    }
+
+    public ArrayList<Guitar> getGuitars() {
+        return guitars;
+    }
+
+    public void setGuitars(ArrayList<Guitar> guitars) {
+        this.guitars = guitars;
+    }
+
+    public ArrayList<Violin> getViolins() {
+        return violins;
+    }
+
+    public void setViolins(ArrayList<Violin> violins) {
+        this.violins = violins;
+    }
+
+    public ArrayList<Hammer> getHammers() {
+        return hammers;
+    }
+
+    public void setHammers(ArrayList<Hammer> hammers) {
+        this.hammers = hammers;
+    }
+
+    public ArrayList<Saw> getSaws() {
+        return saws;
+    }
+
+    public void setSaws(ArrayList<Saw> saws) {
+        this.saws = saws;
+    }
+
+    public ArrayList<Backpack> getBackpacks() {
+        return backpacks;
+    }
+
+    public void setBackpacks(ArrayList<Backpack> backpacks) {
+        this.backpacks = backpacks;
+    }
+
+    public ArrayList<StudyLight> getStudyLights() {
+        return studyLights;
+    }
+
+    public void setStudyLights(ArrayList<StudyLight> studyLights) {
+        this.studyLights = studyLights;
+    }
+
+    public ArrayList<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(ArrayList<Car> cars) {
+        this.cars = cars;
+    }
+
+    public ArrayList<Truck> getTrucks() {
+        return trucks;
+    }
+
+    public void setTrucks(ArrayList<Truck> trucks) {
+        this.trucks = trucks;
+    }
+
     public Seller(String username, String password, double wallet) {
         super(username, password);
         this.wallet = wallet;
-        listOfAvailableProducts = new ArrayList<>();
     }
 
     public Seller(String username, String password) {

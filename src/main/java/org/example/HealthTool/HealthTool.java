@@ -30,7 +30,7 @@ public abstract class HealthTool extends Product {
 
     @Override
     public String toString() {
-        return "HealthTool{" +
+        return super.toString() + "->" + "HealthTool{" +
                 "supplyPower='" + supplyPower + '\'' +
                 ", used='" + used + '\'' +
                 '}';

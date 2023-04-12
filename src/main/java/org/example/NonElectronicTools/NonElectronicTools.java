@@ -30,7 +30,7 @@ public abstract class NonElectronicTools extends Product {
 
     @Override
     public String toString() {
-        return "NonElectronicTools{" +
+        return super.toString() + "->" + "NonElectronicTools{" +
                 "material='" + material + '\'' +
                 ", weight=" + weight +
                 '}';

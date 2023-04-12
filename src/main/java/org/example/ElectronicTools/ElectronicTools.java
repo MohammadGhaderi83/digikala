@@ -30,7 +30,7 @@ public abstract class ElectronicTools extends Product {
 
     @Override
     public String toString() {
-        return "ElectronicTools{" +
+        return super.toString() + "->" + "ElectronicTools{" +
                 "weight=" + weight +
                 ", powerConsumption=" + powerConsumption +
                 '}';

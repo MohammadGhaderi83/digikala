@@ -30,7 +30,7 @@ public abstract class Vehicle extends Product {
 
     @Override
     public String toString() {
-        return "Vehicle{" +
+        return super.toString() + "->" + "Vehicle{" +
                 "horsepower=" + horsepower +
                 ", tankVolume=" + tankVolume +
                 '}';

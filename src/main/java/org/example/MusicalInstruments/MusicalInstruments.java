@@ -30,7 +30,7 @@ public abstract class MusicalInstruments extends Product {
 
     @Override
     public String toString() {
-        return "MusicalInstruments{" +
+        return super.toString() + "->" + "MusicalInstruments{" +
                 "weight=" + weight +
                 ", material='" + material + '\'' +
                 '}';

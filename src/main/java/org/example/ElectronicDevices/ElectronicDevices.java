@@ -30,7 +30,7 @@ public abstract class ElectronicDevices extends Product {
 
     @Override
     public String toString() {
-        return "ElectronicDevices{" +
+        return super.toString() + "->" + "ElectronicDevices{" +
                 "processor='" + processor + '\'' +
                 ", storage=" + storage +
                 '}';

@@ -30,7 +30,7 @@ public abstract class Clothe extends Product {
 
     @Override
     public String toString() {
-        return "Clothe{" +
+        return super.toString() + "->" + "Clothe{" +
                 "material='" + material + '\'' +
                 ", genre='" + genre + '\'' +
                 '}';

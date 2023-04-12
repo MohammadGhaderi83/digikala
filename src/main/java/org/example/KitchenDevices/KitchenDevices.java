@@ -30,7 +30,7 @@ public abstract class KitchenDevices extends Product {
 
     @Override
     public String toString() {
-        return "KitchenDevices{" +
+        return super.toString() + "->" + "KitchenDevices{" +
                 "volume=" + volume +
                 ", energyConsumptionChart='" + energyConsumptionChart + '\'' +
                 '}';
