@@ -31,6 +31,6 @@ public class Saw extends NonElectronicTools{
         return super.toString() + "->" + "Saw{" +
                 "ironBladeLength=" + ironBladeLength +
                 ", used='" + used + '\'' +
-                '}';
+                "}\n";
     }
 }

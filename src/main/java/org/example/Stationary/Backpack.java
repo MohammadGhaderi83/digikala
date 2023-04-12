@@ -31,6 +31,6 @@ public class Backpack extends Stationary{
         return super.toString() + "->" + "Backpack{" +
                 "numberOfExternalPockets=" + numberOfExternalPockets +
                 ", numberOfInternalPockets=" + numberOfInternalPockets +
-                '}';
+                "}\n";
     }
 }

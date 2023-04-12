@@ -31,6 +31,6 @@ public class Laptop extends ElectronicDevices{
         return super.toString() + "->" + "Laptop{" +
                 "RAM=" + RAM +
                 ", weight=" + weight +
-                '}';
+                "}\n";
     }
 }

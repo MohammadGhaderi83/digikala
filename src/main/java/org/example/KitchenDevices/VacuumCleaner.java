@@ -31,6 +31,6 @@ public class VacuumCleaner extends KitchenDevices{
         return super.toString() + "->" + "VacuumCleaner{" +
                 "enginePower=" + enginePower +
                 ", powerCableLength=" + powerCableLength +
-                '}';
+                "}\n";
     }
 }

@@ -20,6 +20,6 @@ public class Hammer extends NonElectronicTools{
     public String toString() {
         return super.toString() + "->" + "Hammer{" +
                 "crossSectionalSize='" + crossSectionalSize + '\'' +
-                '}';
+                "}\n";
     }
 }

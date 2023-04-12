@@ -74,6 +74,6 @@ public abstract class Product {
                 ", number=" + number +
                 ", color='" + color + '\'' +
                 ", ID=" + ID +
-                '}';
+                "}";
     }
 }

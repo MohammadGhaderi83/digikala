@@ -31,6 +31,6 @@ public class StudyLight extends Stationary{
         return super.toString() + "->" + "StudyLight{" +
                 "bubbleDiameter=" + bubbleDiameter +
                 ", numberOfUsableLamps=" + numberOfUsableLamps +
-                '}';
+                "}\n";
     }
 }

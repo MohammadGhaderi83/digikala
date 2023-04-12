@@ -31,6 +31,6 @@ public class BloodSugarTestMachine extends HealthTool{
         return super.toString() + "->" + "BloodSugarTestMachine{" +
                 "minimumBloodRequired=" + minimumBloodRequired +
                 ", numberOfTestStrips=" + numberOfTestStrips +
-                '}';
+                "}\n";
     }
 }

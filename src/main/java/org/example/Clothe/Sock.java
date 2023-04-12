@@ -20,6 +20,6 @@ public class Sock extends Clothe {
     public String toString() {
         return super.toString() + "->" + "Sock{" +
                 "size='" + size + '\'' +
-                '}';
+                "\n";
     }
 }

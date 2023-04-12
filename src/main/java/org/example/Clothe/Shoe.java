@@ -20,6 +20,6 @@ public class Shoe extends Clothe{
     public String toString() {
         return super.toString() + "->" + "Shoe{" +
                 "isItShoeLace=" + isItShoeLace +
-                '}';
+                "}\n";
     }
 }

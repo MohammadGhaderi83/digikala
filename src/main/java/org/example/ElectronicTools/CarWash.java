@@ -31,6 +31,6 @@ public class CarWash extends ElectronicTools{
         return super.toString() + "->" + "CarWash{" +
                 "maximumEaterTemperature=" + maximumEaterTemperature +
                 ", hoseLength=" + hoseLength +
-                '}';
+                "}\n";
     }
 }

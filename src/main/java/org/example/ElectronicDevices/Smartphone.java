@@ -31,6 +31,6 @@ public class Smartphone extends ElectronicDevices{
         return super.toString() + "->" + "Smartphone{" +
                 "cameraQuality=" + cameraQuality +
                 ", numOfCameras=" + numOfCameras +
-                '}';
+                "}\n";
     }
 }

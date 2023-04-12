@@ -31,6 +31,6 @@ public class Guitar extends MusicalInstruments{
         return super.toString() + "->" + "Guitar{" +
                 "wiresNumber=" + wiresNumber +
                 ", bowlThickness=" + bowlThickness +
-                '}';
+                "}\n";
     }
 }

@@ -33,6 +33,10 @@ public class Main {
         User user = new User("username","password","mamad@gmail.com","09153346894","ads", 0);
         Admin admin = new Admin("admin", "password1","nobari@gmail.com");
         Seller seller = new Seller("seller", "password2",12);
+        Laptop laptop = new Laptop("zBook", "hp",45, 12, "silver", "123", "intel", 256, 16, 2);
+        Laptop laptop1 = new Laptop("zBook", "hp", 65, 1, "black", "456", "intel", 512,16,3);
+        shop.addLaptop(laptop);
+        shop.addLaptop(laptop1);
         shop.createAccountUser(user);
         shop.addAdmin(admin);
         shop.createAccountSeller(seller);

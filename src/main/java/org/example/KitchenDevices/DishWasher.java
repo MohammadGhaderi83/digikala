@@ -31,6 +31,6 @@ public class DishWasher extends KitchenDevices{
         return super.toString() + "->" + "DishWasher{" +
                 "capacity=" + capacity +
                 ", numberOfBaskets=" + numberOfBaskets +
-                '}';
+                "}\n";
     }
 }

@@ -25,7 +25,9 @@ import org.example.Vehicles.Truck;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class Shop {
     private String name = "digikala";
@@ -444,76 +446,76 @@ public class Shop {
     {
         requests.add(request);
     }
-    public Optional<Laptop> searchLaptop(String name){
+    public List<Laptop> searchLaptop(String name){
         return laptops.stream().
-                filter(laptop -> laptop.getName().equals(name)).findFirst();
+                filter(laptop -> laptop.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
     }
-    public Optional<Smartphone> searchSmartphone(String name){
+    public List<Smartphone> searchSmartphone(String name){
         return smartphones.stream().
-                filter(smartphone -> smartphone.getName().equals(name)).findFirst();
+                filter(smartphone -> smartphone.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
     }
-    public Optional<Shoe> searchShoe(String name){
+    public List<Shoe> searchShoe(String name){
         return shoes.stream().
-                filter(shoe -> shoe.getName().equals(name)).findFirst();
+                filter(shoe -> shoe.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
     }
-    public Optional<Sock> searchSock(String name){
+    public List<Sock> searchSock(String name){
         return socks.stream().
-                filter(sock -> sock.getName().equals(name)).findFirst();
+                filter(sock -> sock.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
     }
-    public Optional<ElectricEngine> searchElectricEngine(String name){
+    public List<ElectricEngine> searchElectricEngine(String name){
         return electricEngines.stream().
-                filter(electricEngine -> electricEngine.getName().equals(name)).findFirst();
+                filter(electricEngine -> electricEngine.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
     }
-    public Optional<CarWash> searchCarWash(String name){
+    public List<CarWash> searchCarWash(String name){
         return carWashes.stream().
-                filter(carWash -> carWash.getName().equals(name)).findFirst();
+                filter(carWash -> carWash.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
     }
-    public Optional<BloodSugarTestMachine> searchBloodSugarTestMachine(String name){
+    public List<BloodSugarTestMachine> searchBloodSugarTestMachine(String name){
         return bloodSugarTestMachines.stream().
-                filter(bloodSugarTestMachine -> bloodSugarTestMachine.getName().equals(name)).findFirst();
+                filter(bloodSugarTestMachine -> bloodSugarTestMachine.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
     }
-    public Optional<Sphygmomanometer> searchSphygmomanometer(String name){
+    public List<Sphygmomanometer> searchSphygmomanometer(String name){
         return sphygmomanometers.stream().
-                filter(sphygmomanometer -> sphygmomanometer.getName().equals(name)).findFirst();
+                filter(sphygmomanometer -> sphygmomanometer.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
     }
-    public Optional<DishWasher> searchDishWasher(String name){
+    public List<DishWasher> searchDishWasher(String name){
         return dishWashers.stream().
-                filter(dishWasher -> dishWasher.getName().equals(name)).findFirst();
+                filter(dishWasher -> dishWasher.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
     }
-    public Optional<VacuumCleaner> searchVacuumCleaner(String name){
+    public List<VacuumCleaner> searchVacuumCleaner(String name){
         return vacuumCleaners.stream().
-                filter(vacuumCleaner -> vacuumCleaner.getName().equals(name)).findFirst();
+                filter(vacuumCleaner -> vacuumCleaner.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
     }
-    public Optional<Guitar> searchGuitar(String name){
+    public List<Guitar> searchGuitar(String name){
         return guitars.stream().
-                filter(guitar -> guitar.getName().equals(name)).findFirst();
+                filter(guitar -> guitar.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
     }
-    public Optional<Violin> searchViolin(String name){
+    public List<Violin> searchViolin(String name){
         return violins.stream().
-                filter(violin -> violin.getName().equals(name)).findFirst();
+                filter(violin -> violin.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
     }
-    public Optional<Hammer> searchHammer(String name){
+    public List<Hammer> searchHammer(String name){
         return hammers.stream().
-                filter(hammer -> hammer.getName().equals(name)).findFirst();
+                filter(hammer -> hammer.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
     }
-    public Optional<Saw> searchSaw(String name){
+    public List<Saw> searchSaw(String name){
         return saws.stream().
-                filter(saw -> saw.getName().equals(name)).findFirst();
+                filter(saw -> saw.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
     }
-    public Optional<Backpack> searchBackpack(String name){
+    public List<Backpack> searchBackpack(String name){
         return backpacks.stream().
-                filter(backpack -> backpack.getName().equals(name)).findFirst();
+                filter(backpack -> backpack.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
     }
-    public Optional<StudyLight> searchStudyLight(String name){
+    public List<StudyLight> searchStudyLight(String name){
         return studyLights.stream().
-                filter(studyLight -> studyLight.getName().equals(name)).findFirst();
+                filter(studyLight -> studyLight.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
     }
-    public Optional<Car> searchCar(String name){
+    public List<Car> searchCar(String name){
         return cars.stream().
-                filter(car -> car.getName().equals(name)).findFirst();
+                filter(car -> car.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
     }
-    public Optional<Truck> searchTruck(String name){
+    public List<Truck> searchTruck(String name){
         return trucks.stream().
-                filter(truck -> truck.getName().equals(name)).findFirst();
+                filter(truck -> truck.getName().equalsIgnoreCase(name)).collect(Collectors.toList());
     }
 }

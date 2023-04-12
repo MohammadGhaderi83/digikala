@@ -31,6 +31,6 @@ public class ElectricEngine extends ElectronicTools{
         return super.toString() + "->" + "ElectricEngine{" +
                 "fuelType='" + fuelType + '\'' +
                 ", enginePower=" + enginePower +
-                '}';
+                "}\n";
     }
 }

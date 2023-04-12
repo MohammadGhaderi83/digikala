@@ -31,6 +31,6 @@ public class Truck extends Vehicle{
         return super.toString() + "->" + "Truck{" +
                 "numberOfWheels=" + numberOfWheels +
                 ", doesHaveBed=" + doesHaveBed +
-                '}';
+                "}\n";
     }
 }

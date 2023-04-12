@@ -31,6 +31,6 @@ public class Violin extends MusicalInstruments{
         return super.toString() + "->" + "Violin{" +
                 "chinMaterial='" + chinMaterial + '\'' +
                 ", topPlateMaterial='" + topPlateMaterial + '\'' +
-                '}';
+                "}\n";
     }
 }

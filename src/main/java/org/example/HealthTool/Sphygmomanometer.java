@@ -31,6 +31,6 @@ public class Sphygmomanometer extends HealthTool{
         return super.toString() + "->" + "Sphygmomanometer{" +
                 "suitableArmSize='" + suitableArmSize + '\'' +
                 ", displayType='" + displayType + '\'' +
-                '}';
+                "}\n";
     }
 }
