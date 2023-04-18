@@ -4,8 +4,8 @@ public class Smartphone extends ElectronicDevices{
     private int cameraQuality;
     private int numOfCameras;
 
-    public Smartphone(String name, String brand, double price, int number, String color, String ID, String processor, int storage, int cameraQuality, int numOfCameras) {
-        super(name, brand, price, number, color, ID, processor, storage);
+    public Smartphone(String name, String brand, double price, int number, String color, String ID, String companyName, String processor, int storage, int cameraQuality, int numOfCameras) {
+        super(name, brand, price, number, color, ID, companyName, processor, storage);
         this.cameraQuality = cameraQuality;
         this.numOfCameras = numOfCameras;
     }

@@ -6,8 +6,8 @@ public abstract class Stationary extends Product {
     private String material;
     private String suitableFor;
 
-    public Stationary(String name, String brand, double price, int number, String color, String ID, String material, String suitableFor) {
-        super(name, brand, price, number, color, ID);
+    public Stationary(String name, String brand, double price, int number, String color, String ID, String companyName, String material, String suitableFor) {
+        super(name, brand, price, number, color, ID, companyName);
         this.material = material;
         this.suitableFor = suitableFor;
     }

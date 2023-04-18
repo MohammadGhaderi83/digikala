@@ -3,8 +3,8 @@ package org.example.Vehicles;
 public class Car extends Vehicle{
     private int seatsNumber;
 
-    public Car(String name, String brand, double price, int number, String color, String ID, int horsepower, int tankVolume, int seatsNumber) {
-        super(name, brand, price, number, color, ID, horsepower, tankVolume);
+    public Car(String name, String brand, double price, int number, String color, String ID, String companyName, int horsepower, int tankVolume, int seatsNumber) {
+        super(name, brand, price, number, color, ID, companyName, horsepower, tankVolume);
         this.seatsNumber = seatsNumber;
     }
 

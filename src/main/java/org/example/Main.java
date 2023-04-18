@@ -18,6 +18,7 @@ import org.example.Stationary.Backpack;
 import org.example.Stationary.StudyLight;
 import org.example.UserBase.Admin;
 import org.example.UserBase.Seller;
+import org.example.UserBase.ShoppingCart;
 import org.example.UserBase.User;
 import org.example.Vehicles.Car;
 import org.example.Vehicles.Truck;
@@ -30,14 +31,14 @@ public class Main {
     static Shop shop = new Shop();
     public static void main(String[] args) {
         System.out.println("** Welcome to the online shop **");
-        User user = new User("username","password","mamad@gmail.com","09153346894","ads", 0);
+        User user = new User("username","password","mamad@gmail.com","09153346894","ads", 600000);
+        User user1 = new User("mamad","123","ghader@gmailcom","0912456789","assdsdklf fggjfdlkg fklkf", 0);
         Admin admin = new Admin("admin", "password1","nobari@gmail.com");
         Seller seller = new Seller("seller", "password2",12);
-        Laptop laptop = new Laptop("zBook", "hp",45, 12, "silver", "123", "intel", 256, 16, 2);
-        Laptop laptop1 = new Laptop("zBook", "hp", 65, 1, "black", "456", "intel", 512,16,3);
+        Laptop laptop = new Laptop("zBook","hp",50000, 5, "silver", "123","seller", "intel", 256, 16, 3);
         shop.addLaptop(laptop);
-        shop.addLaptop(laptop1);
         shop.createAccountUser(user);
+        shop.createAccountUser(user1);
         shop.addAdmin(admin);
         shop.createAccountSeller(seller);
         runMenu();
@@ -47,7 +48,7 @@ public class Main {
         boolean runFlag = true;
         while (runFlag)
         {
-            System.out.println("Please choose(1-5)\n" +
+            System.out.println("Please choose(1-6)\n" +
                     "1- Sign in\n" +
                     "2- Sign Up\n" +
                     "3- About shop\n" +
@@ -65,198 +66,11 @@ public class Main {
                 System.out.println("Web address: " + shop.getWebAddress());
                 System.out.println("Support number: " + shop.getSupportNumber());
             } else if (choice == 4) {
-                int counter = 0;
-                if (shop.getLaptops().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getLaptops());
-                }
-                if (shop.getSmartphones().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getSmartphones());
-                }
-                if (shop.getShoes().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getShoes());
-                }
-                if (shop.getSocks().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getSocks());
-                }
-                if (shop.getElectricEngines().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getElectricEngines());
-                }
-                if (shop.getCarWashes().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getCarWashes());
-                }
-                if (shop.getBloodSugarTestMachines().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getBloodSugarTestMachines());
-                }
-                if (shop.getSphygmomanometers().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getSphygmomanometers());
-                }
-                if (shop.getDishWashers().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getDishWashers());
-                }
-                if (shop.getVacuumCleaners().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getVacuumCleaners());
-                }
-                if (shop.getGuitars().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getGuitars());
-                }
-                if (shop.getViolins().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getViolins());
-                }
-                if (shop.getHammers().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getHammers());
-                }
-                if (shop.getSaws().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getSaws());
-                }
-                if (shop.getBackpacks().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getBackpacks());
-                }
-                if (shop.getStudyLights().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getStudyLights());
-                }
-                if (shop.getCars().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getCars());
-                }
-                if (shop.getTrucks().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getTrucks());
-                }
-                if (counter == 18)
-                {
-                    System.out.println("There is no product in the shop as it looks :(");
-                }
+                shop.showProducts();
             } else if (choice == 5) {
                 System.out.println("Please enter the product name: ");
                 String productName = input.next();
-                if (!shop.searchLaptop(productName).isEmpty())
-                {
-                    System.out.println(shop.searchLaptop(productName));
-                } else if (!shop.searchSmartphone(productName).isEmpty()){
-                    System.out.println(shop.searchSmartphone(productName));
-                } else if (!shop.searchShoe(productName).isEmpty()){
-                    System.out.println(shop.searchShoe(productName));
-                } else if (!shop.searchSock(productName).isEmpty()){
-                    System.out.println(shop.searchSock(productName));
-                } else if (!shop.searchBloodSugarTestMachine(productName).isEmpty()){
-                    System.out.println(shop.searchBloodSugarTestMachine(productName));
-                } else if (!shop.searchSphygmomanometer(productName).isEmpty()){
-                    System.out.println(shop.searchSphygmomanometer(productName));
-                } else if (!shop.searchElectricEngine(productName).isEmpty()){
-                    System.out.println(shop.searchElectricEngine(productName));
-                } else if (!shop.searchCarWash(productName).isEmpty()){
-                    System.out.println(shop.searchCarWash(productName));
-                } else if (!shop.searchDishWasher(productName).isEmpty()){
-                    System.out.println(shop.searchDishWasher(productName));
-                } else if (!shop.searchSaw(productName).isEmpty()){
-                    System.out.println(shop.searchSaw(productName));
-                } else if (!shop.searchVacuumCleaner(productName).isEmpty()){
-                    System.out.println(shop.searchVacuumCleaner(productName));
-                } else if (!shop.searchGuitar(productName).isEmpty()){
-                    System.out.println(shop.searchGuitar(productName));
-                } else if (!shop.searchViolin(productName).isEmpty()){
-                    System.out.println(shop.searchViolin(productName));
-                } else if (!shop.searchHammer(productName).isEmpty()){
-                    System.out.println(shop.searchHammer(productName));
-                } else if (!shop.searchBackpack(productName).isEmpty()){
-                    System.out.println(shop.searchBackpack(productName));
-                } else if (!shop.searchStudyLight(productName).isEmpty()){
-                    System.out.println(shop.searchStudyLight(productName));
-                } else if (!shop.searchCar(productName).isEmpty()){
-                    System.out.println(shop.searchCar(productName));
-                } else if (!shop.searchTruck(productName).isEmpty()){
-                    System.out.println(shop.searchTruck(productName));
-                } else {
-                    System.out.println("There is no product according to your search :((");
-                }
+                shop.searchProduct(productName);
             } else if (choice == 6) {
                 runFlag = false;
                 System.out.println("DigiKala is glad to have served");
@@ -292,7 +106,7 @@ public class Main {
                 if (password.equals(confirmPassword))
                 {
                     User user = new User(username, password, emailAddress, phoneNumber, address,0);
-                    String message =  shop.createAccountUser(user) ? username + "successfully added!" : "there is exist a password same you have entered!";
+                    String message =  shop.createAccountUser(user) ? username + " successfully added!" : "there is exist a password same you have entered!";
                     System.out.println(message);
                     userMenu(user);
                 } else {
@@ -308,7 +122,7 @@ public class Main {
                 if (password.equals(confirmPassword))
                 {
                     Seller seller = new Seller(username, password);
-                    String message = shop.createAccountSeller(seller) ? username + "successfully added!" : "there is exist a password same you have entered!";
+                    String message = shop.createAccountSeller(seller) ? username + " successfully added!" : "there is exist a password same you have entered!";
                     System.out.println(message);
                     sellerMenu(seller);
                 } else {
@@ -390,7 +204,9 @@ public class Main {
                     "4- Log out\n" +
                     "5- Increase wallet\n"+
                     "6- Search a product\n"+
-                    "7- Back");
+                    "7- Show Shopping Cart\n"+
+                    "8- Buy a product\n" +
+                    "9- Back");
             int userChoice = input.nextInt();
             if (userChoice == 1)
             {
@@ -438,155 +254,7 @@ public class Main {
                 }
 
             } else if (userChoice == 3) {
-                int counter = 0;
-                if (shop.getLaptops().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getLaptops());
-                }
-                if (shop.getSmartphones().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getSmartphones());
-                }
-                if (shop.getShoes().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getShoes());
-                }
-                if (shop.getSocks().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getSocks());
-                }
-                if (shop.getElectricEngines().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getElectricEngines());
-                }
-                if (shop.getCarWashes().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getCarWashes());
-                }
-                if (shop.getBloodSugarTestMachines().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getBloodSugarTestMachines());
-                }
-                if (shop.getSphygmomanometers().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getSphygmomanometers());
-                }
-                if (shop.getDishWashers().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getDishWashers());
-                }
-                if (shop.getVacuumCleaners().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getVacuumCleaners());
-                }
-                if (shop.getGuitars().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getGuitars());
-                }
-                if (shop.getViolins().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getViolins());
-                }
-                if (shop.getHammers().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getHammers());
-                }
-                if (shop.getSaws().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getSaws());
-                }
-                if (shop.getBackpacks().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getBackpacks());
-                }
-                if (shop.getStudyLights().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getStudyLights());
-                }
-                if (shop.getCars().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getCars());
-                }
-                if (shop.getTrucks().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(shop.getTrucks());
-                }
-                if (counter == 18)
-                {
-                    System.out.println("Dear " + user.getUsername() + " there is no product in the shop as it looks :(");
-                }
+                shop.showProducts();
             } else if (userChoice == 4) {
                 String message = shop.userLogout(user.getPassword()) ? "Done!" : "it didn't work";
                 System.out.println(message);
@@ -594,53 +262,203 @@ public class Main {
             } else if (userChoice == 5) {
                 System.out.println("how much do you want to increase?");
                 int amount = input.nextInt();
-                Request request = new Request(user, amount);
+                WalletRequest request = new WalletRequest(user, amount);
                 shop.addRequest(request);
-                System.out.println("Wait until admin to confirm it!");
+                System.out.println("Wait until admin respond to your request");
             } else if (userChoice == 6){
+                ShoppingCart shoppingCart = new ShoppingCart();
                 System.out.println("Please enter the product name: ");
                 String productName = input.next();
                 if (!shop.searchLaptop(productName).isEmpty())
                 {
                     System.out.println(shop.searchLaptop(productName));
+                    System.out.println("If you want to add a product to your shopping cart Please enter it's ID: ");
+                    String ID = input.next();
+                    System.out.println(shop.searchInLaptop(ID, productName));
+                    Laptop temp = shop.searchInLaptop(ID, productName).get(0);
+                    ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Electronic devices", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
+                    shoppingCart.addProduct(ID, product);
+                    user.addProduct(ID, product);
                 } else if (!shop.searchSmartphone(productName).isEmpty()){
                     System.out.println(shop.searchSmartphone(productName));
+                    System.out.println("If you want to add a product to your shopping cart Please enter it's ID: ");
+                    String ID = input.next();
+                    System.out.println(shop.searchInSmartphone(ID, productName));
+                    Smartphone temp = shop.searchInSmartphone(ID, productName).get(0);
+                    ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Electronic devices", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
+                    shoppingCart.addProduct(ID, product);
+                    user.addProduct(ID, product);
                 } else if (!shop.searchShoe(productName).isEmpty()){
                     System.out.println(shop.searchShoe(productName));
+                    System.out.println("If you want to add a product to your shopping cart Please enter it's ID: ");
+                    String ID = input.next();
+                    System.out.println(shop.searchInShoe(ID, productName));
+                    Shoe temp = shop.searchInShoe(ID, productName).get(0);
+                    ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Clothe", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
+                    shoppingCart.addProduct(ID, product);
+                    user.addProduct(ID, product);
                 } else if (!shop.searchSock(productName).isEmpty()){
                     System.out.println(shop.searchSock(productName));
+                    System.out.println("If you want to add a product to your shopping cart Please enter it's ID: ");
+                    String ID = input.next();
+                    System.out.println(shop.searchInSock(ID, productName));
+                    Sock temp = shop.searchInSock(ID, productName).get(0);
+                    ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Clothe", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
+                    shoppingCart.addProduct(ID, product);
+                    user.addProduct(ID, product);
                 } else if (!shop.searchBloodSugarTestMachine(productName).isEmpty()){
                     System.out.println(shop.searchBloodSugarTestMachine(productName));
+                    System.out.println("If you want to add a product to your shopping cart Please enter it's ID: ");
+                    String ID = input.next();
+                    System.out.println(shop.searchInBloodSugarTest(ID, productName));
+                    BloodSugarTestMachine temp = shop.searchInBloodSugarTest(ID, productName).get(0);
+                    ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Health tools", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
+                    shoppingCart.addProduct(ID, product);
+                    user.addProduct(ID, product);
                 } else if (!shop.searchSphygmomanometer(productName).isEmpty()){
                     System.out.println(shop.searchSphygmomanometer(productName));
+                    System.out.println("If you want to add a product to your shopping cart Please enter it's ID: ");
+                    String ID = input.next();
+                    System.out.println(shop.searchInSphygmomanometer(ID, productName));
+                    Sphygmomanometer temp = shop.searchInSphygmomanometer(ID, productName).get(0);
+                    ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Health tools", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
+                    shoppingCart.addProduct(ID, product);
+                    user.addProduct(ID, product);
                 } else if (!shop.searchElectricEngine(productName).isEmpty()){
                     System.out.println(shop.searchElectricEngine(productName));
+                    System.out.println("If you want to add a product to your shopping cart Please enter it's ID: ");
+                    String ID = input.next();
+                    System.out.println(shop.searchInElectronicEngine(ID, productName));
+                    ElectricEngine temp = shop.searchInElectronicEngine(ID, productName).get(0);
+                    ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Electronic Tools", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
+                    shoppingCart.addProduct(ID, product);
+                    user.addProduct(ID, product);
                 } else if (!shop.searchCarWash(productName).isEmpty()){
                     System.out.println(shop.searchCarWash(productName));
+                    System.out.println("If you want to add a product to your shopping cart Please enter it's ID: ");
+                    String ID = input.next();
+                    System.out.println(shop.searchInCarWash(ID, productName));
+                    CarWash temp = shop.searchInCarWash(ID, productName).get(0);
+                    ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Electronic Tools", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
+                    shoppingCart.addProduct(ID, product);
+                    user.addProduct(ID, product);
                 } else if (!shop.searchDishWasher(productName).isEmpty()){
                     System.out.println(shop.searchDishWasher(productName));
+                    System.out.println("If you want to add a product to your shopping cart Please enter it's ID: ");
+                    String ID = input.next();
+                    System.out.println(shop.searchInDishwasher(ID, productName));
+                    DishWasher temp = shop.searchInDishwasher(ID, productName).get(0);
+                    ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Kitchen devices", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
+                    shoppingCart.addProduct(ID, product);
+                    user.addProduct(ID, product);
                 } else if (!shop.searchSaw(productName).isEmpty()){
                     System.out.println(shop.searchSaw(productName));
+                    System.out.println("If you want to add a product to your shopping cart Please enter it's ID: ");
+                    String ID = input.next();
+                    System.out.println(shop.searchInSaw(ID, productName));
+                    Saw temp = shop.searchInSaw(ID, productName).get(0);
+                    ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Non Electronic devices", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
+                    shoppingCart.addProduct(ID, product);
+                    user.addProduct(ID, product);
                 } else if (!shop.searchVacuumCleaner(productName).isEmpty()){
                     System.out.println(shop.searchVacuumCleaner(productName));
+                    System.out.println("If you want to add a product to your shopping cart Please enter it's ID: ");
+                    String ID = input.next();
+                    System.out.println(shop.searchInVacuumCleaner(ID, productName));
+                    VacuumCleaner temp = shop.searchInVacuumCleaner(ID, productName).get(0);
+                    ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Kitchen devices", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
+                    shoppingCart.addProduct(ID, product);
+                    user.addProduct(ID, product);
                 } else if (!shop.searchGuitar(productName).isEmpty()){
                     System.out.println(shop.searchGuitar(productName));
+                    System.out.println("If you want to add a product to your shopping cart Please enter it's ID: ");
+                    String ID = input.next();
+                    System.out.println(shop.searchInGuitar(ID, productName));
+                    Guitar temp = shop.searchInGuitar(ID, productName).get(0);
+                    ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Musical Instruments", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
+                    shoppingCart.addProduct(ID, product);
+                    user.addProduct(ID, product);
                 } else if (!shop.searchViolin(productName).isEmpty()){
                     System.out.println(shop.searchViolin(productName));
+                    System.out.println("If you want to add a product to your shopping cart Please enter it's ID: ");
+                    String ID = input.next();
+                    System.out.println(shop.searchInViolin(ID, productName));
+                    Violin temp = shop.searchInViolin(ID, productName).get(0);
+                    ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Musical Instruments", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
+                    shoppingCart.addProduct(ID, product);
+                    user.addProduct(ID, product);
                 } else if (!shop.searchHammer(productName).isEmpty()){
                     System.out.println(shop.searchHammer(productName));
+                    System.out.println("If you want to add a product to your shopping cart Please enter it's ID: ");
+                    String ID = input.next();
+                    System.out.println(shop.searchInHammer(ID, productName));
+                    Hammer temp = shop.searchInHammer(ID, productName).get(0);
+                    ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Non Electronic devices", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
+                    shoppingCart.addProduct(ID, product);
+                    user.addProduct(ID, product);
                 } else if (!shop.searchBackpack(productName).isEmpty()){
                     System.out.println(shop.searchBackpack(productName));
+                    System.out.println("If you want to add a product to your shopping cart Please enter it's ID: ");
+                    String ID = input.next();
+                    System.out.println(shop.searchInBackpack(ID, productName));
+                    Backpack temp = shop.searchInBackpack(ID, productName).get(0);
+                    ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Stationary", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
+                    shoppingCart.addProduct(ID, product);
+                    user.addProduct(ID, product);
                 } else if (!shop.searchStudyLight(productName).isEmpty()){
                     System.out.println(shop.searchStudyLight(productName));
+                    System.out.println("If you want to add a product to your shopping cart Please enter it's ID: ");
+                    String ID = input.next();
+                    System.out.println(shop.searchInStudyLight(ID, productName));
+                    StudyLight temp = shop.searchInStudyLight(ID, productName).get(0);
+                    ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Stationary", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
+                    shoppingCart.addProduct(ID, product);
+                    user.addProduct(ID, product);
                 } else if (!shop.searchCar(productName).isEmpty()){
                     System.out.println(shop.searchCar(productName));
+                    System.out.println("If you want to add a product to your shopping cart Please enter it's ID: ");
+                    String ID = input.next();
+                    System.out.println(shop.searchInCar(ID, productName));
+                    Car temp = shop.searchInCar(ID, productName).get(0);
+                    ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Vehicle", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
+                    shoppingCart.addProduct(ID, product);
+                    user.addProduct(ID, product);
                 } else if (!shop.searchTruck(productName).isEmpty()){
                     System.out.println(shop.searchTruck(productName));
+                    System.out.println("If you want to add a product to your shopping cart Please enter it's ID: ");
+                    String ID = input.next();
+                    System.out.println(shop.searchInTruck(ID, productName));
+                    Truck temp = shop.searchInTruck(ID, productName).get(0);
+                    ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Vehicle", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
+                    shoppingCart.addProduct(ID, product);
+                    user.addProduct(ID, product);
                 } else {
                     System.out.println("There is no product according to your search :((");
                 }
-            } else if (userChoice == 7){
+            } else if (userChoice == 7) {
+                if (!user.showShoppingCart().isEmpty()){
+                    System.out.println(user.showShoppingCart());
+                } else {
+                    System.out.println("Your shopping cart is empty!");
+                }
+            } else if (userChoice == 8) {
+                System.out.println(user.showShoppingCart());
+                System.out.println("If you want to buy any of the products in your list please enter it's ID(if you want to back enter b.):");
+                String ID = input.next();
+                if (!ID.equals("b")){
+                    ShoppingCart product = user.searchInCartByID(ID).get(0);
+                    System.out.println("How many item\\items do you want to buy?");
+                    int numOfItems = input.nextInt();
+                    if (product.getPrice() > user.getWallet()){
+                        System.out.println("Your wallet can't support for the amount of order:( please increase your wallet.");
+                    } else {
+                        Seller seller = shop.searchSellerByUsername(product.getSellerCompanyName()).orElse(null);
+                        BuyRequest request = new BuyRequest(user, seller, product.getPrice(), user.getWallet(), product.getNumOfAvailableItems(), numOfItems, shop, product, product.getID());
+                        shop.addShoppingCartRequest(request);
+                        System.out.println("Yor request sent to our admins wait for their respond!");
+                    }
+                }
+            } else if (userChoice == 9){
                 System.out.println("I am glad to have served");
                 runFlag = false;
             } else {
@@ -702,155 +520,7 @@ public class Main {
                 }
             } else if (choice == 3)
             {
-                int counter = 0;
-                if (seller.getLaptops().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(seller.getLaptops());
-                }
-                if (seller.getSmartphones().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(seller.getSmartphones());
-                }
-                if (seller.getShoes().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(seller.getShoes());
-                }
-                if (seller.getSocks().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(seller.getSocks());
-                }
-                if (seller.getElectricEngines().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(seller.getElectricEngines());
-                }
-                if (seller.getCarWashes().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(seller.getCarWashes());
-                }
-                if (seller.getBloodSugarTestMachines().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(seller.getBloodSugarTestMachines());
-                }
-                if (seller.getSphygmomanometers().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(seller.getSphygmomanometers());
-                }
-                if (seller.getDishWashers().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(seller.getDishWashers());
-                }
-                if (seller.getVacuumCleaners().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(seller.getVacuumCleaners());
-                }
-                if (seller.getGuitars().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(seller.getGuitars());
-                }
-                if (seller.getViolins().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(seller.getViolins());
-                }
-                if (seller.getHammers().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(seller.getHammers());
-                }
-                if (seller.getSaws().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(seller.getSaws());
-                }
-                if (seller.getBackpacks().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(seller.getBackpacks());
-                }
-                if (shop.getStudyLights().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(seller.getStudyLights());
-                }
-                if (seller.getCars().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(seller.getCars());
-                }
-                if (seller.getTrucks().isEmpty())
-                {
-                    counter++;
-                }
-                else
-                {
-                    System.out.println(seller.getTrucks());
-                }
-                if (counter == 18)
-                {
-                    System.out.println("Dear " + seller.getUsername() + "\nThere is no product in the shop as it looks :(");
-                }
+                shop.showProducts();
             } else if (choice == 4)
             {
                 System.out.println("To witch category you want to add:\n" +
@@ -872,49 +542,49 @@ public class Main {
                     int sellerChoice2 = input.nextInt();
                     if (sellerChoice2 == 1)
                     {
-                        System.out.println("Please enter a name: ");
+                        System.out.println("Please enter it's name: ");
                         String name = input.next();
-                        System.out.println("Please enter a brand: ");
+                        System.out.println("Please enter it's brand: ");
                         String brand = input.next();
                         System.out.println("Please enter it's price: ");
                         double price = input.nextDouble();
-                        System.out.println("Please enter the amount of it: ");
+                        System.out.println("How many item you want to add? ");
                         int number = input.nextInt();
                         System.out.println("Please enter the color: ");
                         String color = input.next();
-                        System.out.println("Please enter the ID: ");
-                        String ID = input.next();
+//                        System.out.println("Please enter the ID: ");
+                        String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's material: ");
                         String material = input.next();
                         System.out.println("Please enter it's genre: ");
                         String genre = input.next();
                         System.out.println("Is it shoeLace?");
-                        boolean isItShoeLace = input.hasNext();
-                        Shoe shoe = new Shoe(name, brand, price, number, color, ID, material, genre, isItShoeLace);
+                        String isItShoeLace = input.next();
+                        Shoe shoe = new Shoe(name, brand, price, number, color, ID, seller.getUsername(), material, genre, isItShoeLace);
                         shop.addSho(shoe);
                         seller.addSho(shoe);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     } else if (sellerChoice2 == 2)
                     {
-                        System.out.println("Please enter a name: ");
+                        System.out.println("Please enter it's name: ");
                         String name = input.next();
-                        System.out.println("Please enter a brand: ");
+                        System.out.println("Please enter it's brand: ");
                         String brand = input.next();
                         System.out.println("Please enter it's price: ");
                         double price = input.nextDouble();
-                        System.out.println("Please enter the amount of it: ");
+                        System.out.println("How many item you want to add? ");
                         int number = input.nextInt();
                         System.out.println("Please enter the color: ");
                         String color = input.next();
-                        System.out.println("Please enter the ID: ");
-                        String ID = input.next();
+//                        System.out.println("Please enter the ID: ");
+                        String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's material: ");
                         String material = input.next();
                         System.out.println("Please enter it's genre: ");
                         String genre = input.next();
                         System.out.println("What it's size?");
                         String size = input.next();
-                        Sock sock = new Sock(name, brand, price, number, color, ID, material, genre, size);
+                        Sock sock = new Sock(name, brand, price, number, color, ID, seller.getUsername(), material, genre, size);
                         shop.addSock(sock);
                         seller.addSock(sock);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
@@ -931,14 +601,14 @@ public class Main {
                         String name = input.next();
                         System.out.println("Please enter it's brand: ");
                         String brand = input.next();
-                        System.out.println("Please enter it's price(Rial): ");
+                        System.out.println("Please enter it's price: ");
                         double price = input.nextDouble();
                         System.out.println("How many item you want to add? ");
                         int number = input.nextInt();
                         System.out.println("Please enter it's color: ");
                         String color = input.next();
-                        System.out.println("Please enter the ID: ");
-                        String ID = input.next();
+//                        System.out.println("Please enter the ID: ");
+                        String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's processor: ");
                         String processor = input.next();
                         System.out.println("Please enter it's storage: ");
@@ -947,24 +617,24 @@ public class Main {
                         int RAM = input.nextInt();
                         System.out.println("Please enter it's weight: ");
                         int weight = input.nextInt();
-                        Laptop laptop = new Laptop(name, brand, price, number, color, ID, processor, storage, RAM, weight);
+                        Laptop laptop = new Laptop(name, brand, price, number, color, ID, seller.getUsername(), processor, storage, RAM, weight);
                         shop.addLaptop(laptop);
                         seller.addLaptop(laptop);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     } else if (sellerChoice2 == 2)
                     {
-                        System.out.println("Please enter a name: ");
+                        System.out.println("Please enter it's name: ");
                         String name = input.next();
-                        System.out.println("Please enter a brand: ");
+                        System.out.println("Please enter it's brand: ");
                         String brand = input.next();
                         System.out.println("Please enter it's price: ");
                         double price = input.nextDouble();
-                        System.out.println("Please enter the amount of it: ");
+                        System.out.println("How many item you want to add? ");
                         int number = input.nextInt();
                         System.out.println("Please enter the color: ");
                         String color = input.next();
-                        System.out.println("Please enter the ID: ");
-                        String ID = input.next();
+//                        System.out.println("Please enter the ID: ");
+                        String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's processor: ");
                         String processor = input.next();
                         System.out.println("Please enter it's storage: ");
@@ -973,7 +643,7 @@ public class Main {
                         int cameraQuality = input.nextInt();
                         System.out.println("Please enter it's number of cameras: ");
                         int numberOfCameras = input.nextInt();
-                        Smartphone smartphone = new Smartphone(name, brand, price, number, color, ID, processor, storage, cameraQuality, numberOfCameras);
+                        Smartphone smartphone = new Smartphone(name, brand, price, number, color, ID, seller.getUsername(), processor, storage, cameraQuality, numberOfCameras);
                         shop.addSmartphones(smartphone);
                         seller.addSmartphones(smartphone);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
@@ -986,18 +656,18 @@ public class Main {
                     int sellerChoice2 = input.nextInt();
                     if (sellerChoice2 == 1)
                     {
-                        System.out.println("Please enter a name: ");
+                        System.out.println("Please enter it's name: ");
                         String name = input.next();
-                        System.out.println("Please enter a brand: ");
+                        System.out.println("Please enter it's brand: ");
                         String brand = input.next();
                         System.out.println("Please enter it's price: ");
                         double price = input.nextDouble();
-                        System.out.println("Please enter the amount of it: ");
+                        System.out.println("How many item you want to add? ");
                         int number = input.nextInt();
                         System.out.println("Please enter the color: ");
                         String color = input.next();
-                        System.out.println("Please enter the ID: ");
-                        String ID = input.next();
+//                        System.out.println("Please enter the ID: ");
+                        String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's weight: ");
                         int weight = input.nextInt();
                         System.out.println("Please enter it's power consumption: ");
@@ -1006,24 +676,24 @@ public class Main {
                         int maximumEnterTemperature = input.nextInt();
                         System.out.println("please enter it's hose length: ");
                         int hoseLength = input.nextInt();
-                        CarWash carWash = new CarWash(name, brand, price, number, color, ID, weight, powerConsumption, maximumEnterTemperature, hoseLength);
+                        CarWash carWash = new CarWash(name, brand, price, number, color, ID, seller.getUsername(), weight, powerConsumption, maximumEnterTemperature, hoseLength);
                         shop.addCarWash(carWash);
                         seller.addCarWash(carWash);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     } else if (sellerChoice2 == 2)
                     {
-                        System.out.println("Please enter a name: ");
+                        System.out.println("Please enter it's name: ");
                         String name = input.next();
-                        System.out.println("Please enter a brand: ");
+                        System.out.println("Please enter it's brand: ");
                         String brand = input.next();
                         System.out.println("Please enter it's price: ");
                         double price = input.nextDouble();
-                        System.out.println("Please enter the amount of it: ");
+                        System.out.println("How many item you want to add? ");
                         int number = input.nextInt();
                         System.out.println("Please enter the color: ");
                         String color = input.next();
-                        System.out.println("Please enter the ID: ");
-                        String ID = input.next();
+//                        System.out.println("Please enter the ID: ");
+                        String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's weight: ");
                         int weight = input.nextInt();
                         System.out.println("Please enter it's power consumption: ");
@@ -1032,7 +702,7 @@ public class Main {
                         String fuelType = input.next();
                         System.out.println("Please enter it's engine power: ");
                         int enginePower = input.nextInt();
-                        ElectricEngine electricEngine = new ElectricEngine(name, brand, price, number, color, ID, weight, powerConsumption, fuelType, enginePower);
+                        ElectricEngine electricEngine = new ElectricEngine(name, brand, price, number, color, ID, seller.getUsername(), weight, powerConsumption, fuelType, enginePower);
                         shop.addElectricEngine(electricEngine);
                         seller.addElectricEngine(electricEngine);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
@@ -1045,18 +715,18 @@ public class Main {
                     int sellerChoice2 = input.nextInt();
                     if (sellerChoice2 == 1)
                     {
-                        System.out.println("Please enter a name: ");
+                        System.out.println("Please enter it's name: ");
                         String name = input.next();
-                        System.out.println("Please enter a brand: ");
+                        System.out.println("Please enter it's brand: ");
                         String brand = input.next();
                         System.out.println("Please enter it's price: ");
                         double price = input.nextDouble();
-                        System.out.println("Please enter the amount of it: ");
+                        System.out.println("How many item you want to add? ");
                         int number = input.nextInt();
                         System.out.println("Please enter the color: ");
                         String color = input.next();
-                        System.out.println("Please enter the ID: ");
-                        String ID = input.next();
+//                        System.out.println("Please enter the ID: ");
+                        String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's supply power:");
                         String supplyPower = input.next();
                         System.out.println("Please enter it's used: ");
@@ -1065,24 +735,24 @@ public class Main {
                         double minimumBloodRequired = input.nextDouble();
                         System.out.println("Please enter it's number of test strips: ");
                         int numberOfTestStrips = input.nextInt();
-                        BloodSugarTestMachine bloodSugarTestMachine = new BloodSugarTestMachine(name, brand, price, number, color, ID,supplyPower, used, minimumBloodRequired, numberOfTestStrips);
+                        BloodSugarTestMachine bloodSugarTestMachine = new BloodSugarTestMachine(name, brand, price, number, color, ID, seller.getUsername(), supplyPower, used, minimumBloodRequired, numberOfTestStrips);
                         shop.addBloodSugarTestMachine(bloodSugarTestMachine);
                         seller.addBloodSugarTestMachine(bloodSugarTestMachine);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     } else if (sellerChoice2 == 2)
                     {
-                        System.out.println("Please enter a name: ");
+                        System.out.println("Please enter it's name: ");
                         String name = input.next();
-                        System.out.println("Please enter a brand: ");
+                        System.out.println("Please enter it's brand: ");
                         String brand = input.next();
                         System.out.println("Please enter it's price: ");
                         double price = input.nextDouble();
-                        System.out.println("Please enter the amount of it: ");
+                        System.out.println("How many item you want to add? ");
                         int number = input.nextInt();
                         System.out.println("Please enter the color: ");
                         String color = input.next();
-                        System.out.println("Please enter the ID: ");
-                        String ID = input.next();
+//                        System.out.println("Please enter the ID: ");
+                        String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's supply power:");
                         String supplyPower = input.next();
                         System.out.println("Please enter it's used: ");
@@ -1091,7 +761,7 @@ public class Main {
                         String suitableArmSize = input.next();
                         System.out.println("Please enter it's display type: ");
                         String displayType = input.next();
-                        Sphygmomanometer sphygmomanometer = new Sphygmomanometer(name, brand, price, number, color, ID,supplyPower, used, suitableArmSize, displayType);
+                        Sphygmomanometer sphygmomanometer = new Sphygmomanometer(name, brand, price, number, color, ID, seller.getUsername(), supplyPower, used, suitableArmSize, displayType);
                         shop.addSphygmomanometer(sphygmomanometer);
                         seller.addSphygmomanometer(sphygmomanometer);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
@@ -1104,18 +774,18 @@ public class Main {
                     int sellerChoice2 = input.nextInt();
                     if (sellerChoice2 == 1)
                     {
-                        System.out.println("Please enter a name: ");
+                        System.out.println("Please enter it's name: ");
                         String name = input.next();
-                        System.out.println("Please enter a brand: ");
+                        System.out.println("Please enter it's brand: ");
                         String brand = input.next();
                         System.out.println("Please enter it's price: ");
                         double price = input.nextDouble();
-                        System.out.println("Please enter the amount of it: ");
+                        System.out.println("How many item you want to add? ");
                         int number = input.nextInt();
                         System.out.println("Please enter the color: ");
                         String color = input.next();
-                        System.out.println("Please enter the ID: ");
-                        String ID = input.next();
+//                        System.out.println("Please enter the ID: ");
+                        String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("PLease enter it's volume: ");
                         double volume = input.nextDouble();;
                         System.out.println("Please enter it's energy consumption chart: ");
@@ -1124,24 +794,24 @@ public class Main {
                         String energyConsumptionChart = input.next();
                         System.out.println("Please enter it's number of baskets: ");
                         int numOfBaskets = input.nextInt();
-                        DishWasher dishWasher = new DishWasher(name, brand, price, number, color, ID, volume, energyConsumptionChart, capacity, numOfBaskets);
+                        DishWasher dishWasher = new DishWasher(name, brand, price, number, color, ID, seller.getUsername(), volume, energyConsumptionChart, capacity, numOfBaskets);
                         shop.addDishWasher(dishWasher);
                         seller.addDishWasher(dishWasher);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     } else if(sellerChoice2 == 2)
                     {
-                        System.out.println("Please enter a name: ");
+                        System.out.println("Please enter it's name: ");
                         String name = input.next();
-                        System.out.println("Please enter a brand: ");
+                        System.out.println("Please enter it's brand: ");
                         String brand = input.next();
                         System.out.println("Please enter it's price: ");
                         double price = input.nextDouble();
-                        System.out.println("Please enter the amount of it: ");
+                        System.out.println("How many item you want to add? ");
                         int number = input.nextInt();
                         System.out.println("Please enter the color: ");
                         String color = input.next();
-                        System.out.println("Please enter the ID: ");
-                        String ID = input.next();
+//                        System.out.println("Please enter the ID: ");
+                        String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("PLease enter it's volume: ");
                         double volume = input.nextDouble();;
                         System.out.println("Please enter it's energy consumption chart: ");
@@ -1150,7 +820,7 @@ public class Main {
                         int enginePower = input.nextInt();
                         System.out.println("Please enter it's power cable length: ");
                         int powerCableLength = input.nextInt();;
-                        VacuumCleaner vacuumCleaner = new VacuumCleaner(name, brand, price, number, color, ID, volume, energyConsumptionChart, enginePower, powerCableLength);
+                        VacuumCleaner vacuumCleaner = new VacuumCleaner(name, brand, price, number, color, ID, seller.getUsername(), volume, energyConsumptionChart, enginePower, powerCableLength);
                         shop.addVacuumCleaner(vacuumCleaner);
                         seller.addVacuumCleaner(vacuumCleaner);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
@@ -1163,18 +833,18 @@ public class Main {
                     int sellerChoice2 = input.nextInt();
                     if (sellerChoice2 == 1)
                     {
-                        System.out.println("Please enter a name: ");
+                        System.out.println("Please enter it's name: ");
                         String name = input.next();
-                        System.out.println("Please enter a brand: ");
+                        System.out.println("Please enter it's brand: ");
                         String brand = input.next();
                         System.out.println("Please enter it's price: ");
                         double price = input.nextDouble();
-                        System.out.println("Please enter the amount of it: ");
+                        System.out.println("How many item you want to add? ");
                         int number = input.nextInt();
                         System.out.println("Please enter the color: ");
                         String color = input.next();
-                        System.out.println("Please enter the ID: ");
-                        String ID = input.next();
+//                        System.out.println("Please enter the ID: ");
+                        String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's weight: ");
                         int weight = input.nextInt();
                         System.out.println("Please enter it's material: ");
@@ -1183,24 +853,24 @@ public class Main {
                         int wiresNumber = input.nextInt();
                         System.out.println("Please enter it's bowl thickness: ");
                         int bowlThickness = input.nextInt();
-                        Guitar guitar = new Guitar(name, brand, price, number, color, ID, weight, material, wiresNumber, bowlThickness);
+                        Guitar guitar = new Guitar(name, brand, price, number, color, ID, seller.getUsername(), weight, material, wiresNumber, bowlThickness);
                         shop.addGuitar(guitar);
                         seller.addGuitar(guitar);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     } else if (sellerChoice2 == 2)
                     {
-                        System.out.println("Please enter a name: ");
+                        System.out.println("Please enter it's name: ");
                         String name = input.next();
-                        System.out.println("Please enter a brand: ");
+                        System.out.println("Please enter it's brand: ");
                         String brand = input.next();
                         System.out.println("Please enter it's price: ");
                         double price = input.nextDouble();
-                        System.out.println("Please enter the amount of it: ");
+                        System.out.println("How many item you want to add? ");
                         int number = input.nextInt();
                         System.out.println("Please enter the color: ");
                         String color = input.next();
-                        System.out.println("Please enter the ID: ");
-                        String ID = input.next();
+//                        System.out.println("Please enter the ID: ");
+                        String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's weight: ");
                         int weight = input.nextInt();
                         System.out.println("Please enter it's material: ");
@@ -1209,7 +879,7 @@ public class Main {
                         String chinMaterial = input.next();
                         System.out.println("Please enter it's top plate material: ");
                         String topPlateMaterial = input.next();
-                        Violin violin = new Violin(name, brand, price, number, color, ID, weight, material, chinMaterial, topPlateMaterial);
+                        Violin violin = new Violin(name, brand, price, number, color, ID, seller.getUsername(), weight, material, chinMaterial, topPlateMaterial);
                         shop.addViolin(violin);
                         seller.addViolin(violin);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
@@ -1222,42 +892,42 @@ public class Main {
                     int sellerChoice2 = input.nextInt();
                     if (sellerChoice2 == 1)
                     {
-                        System.out.println("Please enter a name: ");
+                        System.out.println("Please enter it's name: ");
                         String name = input.next();
-                        System.out.println("Please enter a brand: ");
+                        System.out.println("Please enter it's brand: ");
                         String brand = input.next();
                         System.out.println("Please enter it's price: ");
                         double price = input.nextDouble();
-                        System.out.println("Please enter the amount of it: ");
+                        System.out.println("How many item you want to add? ");
                         int number = input.nextInt();
                         System.out.println("Please enter the color: ");
                         String color = input.next();
-                        System.out.println("Please enter the ID: ");
-                        String ID = input.next();
+//                        System.out.println("Please enter the ID: ");
+                        String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's weight: ");
                         int weight = input.nextInt();
                         System.out.println("Please enter it's material: ");
                         String material = input.next();
                         System.out.println("Please enter it's cross sectional size: ");
                         String crossSectionalSize = input.next();
-                        Hammer hammer = new Hammer(name, brand, price, number, color, ID, material, weight, crossSectionalSize);
+                        Hammer hammer = new Hammer(name, brand, price, number, color, ID, seller.getUsername(), material, weight, crossSectionalSize);
                         shop.addHammer(hammer);
                         seller.addHammer(hammer);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     } else if (sellerChoice2 == 2)
                     {
-                        System.out.println("Please enter a name: ");
+                        System.out.println("Please enter it's name: ");
                         String name = input.next();
-                        System.out.println("Please enter a brand: ");
+                        System.out.println("Please enter it's brand: ");
                         String brand = input.next();
                         System.out.println("Please enter it's price: ");
                         double price = input.nextDouble();
-                        System.out.println("Please enter the amount of it: ");
+                        System.out.println("How many item you want to add? ");
                         int number = input.nextInt();
                         System.out.println("Please enter the color: ");
                         String color = input.next();
-                        System.out.println("Please enter the ID: ");
-                        String ID = input.next();
+//                        System.out.println("Please enter the ID: ");
+                        String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's weight: ");
                         int weight = input.nextInt();
                         System.out.println("Please enter it's material: ");
@@ -1266,7 +936,7 @@ public class Main {
                         int ironBladeLength = input.nextInt();
                         System.out.println("Please enter it's used: ");
                         String used = input.next();
-                        Saw saw = new Saw(name, brand, price, number, color, ID, material, weight,ironBladeLength, used);
+                        Saw saw = new Saw(name, brand, price, number, color, ID, seller.getUsername(), material, weight,ironBladeLength, used);
                         shop.addSaw(saw);
                         seller.addSaw(saw);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
@@ -1279,18 +949,18 @@ public class Main {
                     int sellerChoice2 = input.nextInt();
                     if (sellerChoice2 == 1)
                     {
-                        System.out.println("Please enter a name: ");
+                        System.out.println("Please enter it's name: ");
                         String name = input.next();
-                        System.out.println("Please enter a brand: ");
+                        System.out.println("Please enter it's brand: ");
                         String brand = input.next();
                         System.out.println("Please enter it's price: ");
                         double price = input.nextDouble();
-                        System.out.println("Please enter the amount of it: ");
+                        System.out.println("How many item you want to add? ");
                         int number = input.nextInt();
                         System.out.println("Please enter the color: ");
                         String color = input.next();
-                        System.out.println("Please enter the ID: ");
-                        String ID = input.next();
+//                        System.out.println("Please enter the ID: ");
+                        String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's material: ");
                         String material = input.next();
                         System.out.println("Please enter it's used: ");
@@ -1299,24 +969,24 @@ public class Main {
                         int numOfExternalPockets = input.nextInt();
                         System.out.println("Please enter it's internal pockets: ");
                         int numOfInternalPockets = input.nextInt();
-                        Backpack backpack = new Backpack(name, brand, price, number, color, ID, material, used,numOfExternalPockets,numOfInternalPockets);
+                        Backpack backpack = new Backpack(name, brand, price, number, color, ID, seller.getUsername(), material, used,numOfExternalPockets,numOfInternalPockets);
                         shop.addBackpack(backpack);
                         seller.addBackpack(backpack);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     } else if (sellerChoice2 == 2)
                     {
-                        System.out.println("Please enter a name: ");
+                        System.out.println("Please enter it's name: ");
                         String name = input.next();
-                        System.out.println("Please enter a brand: ");
+                        System.out.println("Please enter it's brand: ");
                         String brand = input.next();
                         System.out.println("Please enter it's price: ");
                         double price = input.nextDouble();
-                        System.out.println("Please enter the amount of it: ");
+                        System.out.println("How many item you want to add? ");
                         int number = input.nextInt();
                         System.out.println("Please enter the color: ");
                         String color = input.next();
-                        System.out.println("Please enter the ID: ");
-                        String ID = input.next();
+//                        System.out.println("Please enter the ID: ");
+                        String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's material: ");
                         String material = input.next();
                         System.out.println("Please enter it's used: ");
@@ -1325,7 +995,7 @@ public class Main {
                         int bubbleDiameter = input.nextInt();
                         System.out.println("Please enter it's number of usable lamps: ");
                         int numOfUsableLamps = input.nextInt();
-                        StudyLight studyLight = new StudyLight(name, brand, price, number, color, ID, material, used, bubbleDiameter, numOfUsableLamps);
+                        StudyLight studyLight = new StudyLight(name, brand, price, number, color, ID, seller.getUsername(), material, used, bubbleDiameter, numOfUsableLamps);
                         shop.addStudyLight(studyLight);
                         seller.addStudyLight(studyLight);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
@@ -1338,42 +1008,42 @@ public class Main {
                     int sellerChoice2 = input.nextInt();
                     if (sellerChoice2 == 1)
                     {
-                        System.out.println("Please enter a name: ");
+                        System.out.println("Please enter it's name: ");
                         String name = input.next();
-                        System.out.println("Please enter a brand: ");
+                        System.out.println("Please enter it's brand: ");
                         String brand = input.next();
                         System.out.println("Please enter it's price: ");
                         double price = input.nextDouble();
-                        System.out.println("Please enter the amount of it: ");
+                        System.out.println("How many item you want to add? ");
                         int number = input.nextInt();
                         System.out.println("Please enter the color: ");
                         String color = input.next();
-                        System.out.println("Please enter the ID: ");
-                        String ID = input.next();
+//                        System.out.println("Please enter the ID: ");
+                        String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's horse power: ");
                         int horsePower = input.nextInt();
                         System.out.println("Please enter it's tank volume: ");
                         int tankVolume = input.nextInt();
                         System.out.println("Please enter it's seats number: ");
                         int seatsNumber = input.nextInt();
-                        Car car = new Car(name, brand, price, number, color, ID,horsePower, tankVolume, seatsNumber);
+                        Car car = new Car(name, brand, price, number, color, ID, seller.getUsername(), horsePower, tankVolume, seatsNumber);
                         shop.addCar(car);
                         seller.addCar(car);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     } else if (sellerChoice2 == 2)
                     {
-                        System.out.println("Please enter a name: ");
+                        System.out.println("Please enter it's name: ");
                         String name = input.next();
-                        System.out.println("Please enter a brand: ");
+                        System.out.println("Please enter it's brand: ");
                         String brand = input.next();
                         System.out.println("Please enter it's price: ");
                         double price = input.nextDouble();
-                        System.out.println("Please enter the amount of it: ");
+                        System.out.println("How many item you want to add? ");
                         int number = input.nextInt();
                         System.out.println("Please enter the color: ");
                         String color = input.next();
-                        System.out.println("Please enter the ID: ");
-                        String ID = input.next();
+//                        System.out.println("Please enter the ID: ");
+                        String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's horse power: ");
                         int horsePower = input.nextInt();
                         System.out.println("Please enter it's tank volume: ");
@@ -1382,7 +1052,7 @@ public class Main {
                         float numOfWheels = input.nextFloat();
                         System.out.println("Dose it have any bed?");
                         boolean doseItHaveBed = input.hasNext();
-                        Truck truck = new Truck(name, brand, price, number, color, ID,horsePower, tankVolume, numOfWheels, doseItHaveBed);
+                        Truck truck = new Truck(name, brand, price, number, color,ID , seller.getUsername(), horsePower, tankVolume, numOfWheels, doseItHaveBed);
                         shop.addTrucks(truck);
                         seller.addTrucks(truck);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
@@ -1411,8 +1081,9 @@ public class Main {
                     "4- view sellers profile\n" +
                     "5- Add a new admin\n" +
                     "6- Total profit\n" +
-                    "7- Request list\n" +
-                    "8- Back");
+                    "7- Wallet Request list\n" +
+                    "8- Buy request list\n" +
+                    "9- Back");
             int choice = input.nextInt();
             if (choice == 1)
             {
@@ -1485,7 +1156,7 @@ public class Main {
                 System.out.println(shop.getTotalProfit());
             } else if (choice == 7)
             {
-                for (Request request : shop.getRequests())
+                for (WalletRequest request : shop.getRequests())
                 {
                     System.out.println("Person(User \\ Seller): " + request.getUser());
                     System.out.println("Amount(Rial): " + request.getAmount());
@@ -1494,16 +1165,40 @@ public class Main {
                     if (userInput == 1)
                     {
                         request.isChecked = true;
+                        System.out.println(request.getAmount() + " rial" + " added to " + request.getUsername());
                     } else if (userInput == 2)
                     {
                         request.isChecked = false;
+                        System.out.println("You are disagree to confirm therefore " + request.getUsername() + "'s wallet won't change!");
                     }
-                    shop.removeRequest(request);
                     request.increase();
+                    shop.removeRequest(request);
                     break;
                 }
-            }
-            else if (choice == 8)
+            } else if (choice == 8){
+                for (BuyRequest request : shop.getShoppingCart()){
+                    System.out.println("User: " + request.getUser());
+                    System.out.println("Seller: " + request.getSeller());
+                    System.out.println("Price of the product: " + request.getProductPrice());
+                    System.out.println("User's wallet amount: " + request.getUserWallet());
+                    System.out.println("Product's ID: " + request.getID());
+                    System.out.println("Number of orders by user: " + request.getNumOfOrders());
+                    System.out.println("Number of available products: " + request.getNumOfAvaItems());
+                    System.out.println("Do you want to confirm this order(1-Yes/2-No?");
+                    int adminInput = input.nextInt();
+                    if (adminInput == 1){
+                        request.setChecked(true);
+                        System.out.println(request.getSeller().getUsername() + " sold a product with " + request.getID() + " ID to the " + request.getUser().getUsername());
+                    } else if (adminInput == 2){
+                        request.setChecked(false);
+                        System.out.println("You didn't approve this request therefore this order won't be done!");
+                    }
+                    request.increase();
+                    request.getUser().removeFromShoppingCart(request.getShoppingCart());
+                    shop.removeShoppingCartRequest(request.getShoppingCart());
+                    break;
+                }
+            } else if (choice == 9)
             {
                 System.out.println("I am glad to have served");
                 runFlag = false;

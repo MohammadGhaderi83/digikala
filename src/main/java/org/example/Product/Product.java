@@ -1,5 +1,7 @@
 package org.example.Product;
 
+import java.util.Random;
+
 public abstract class Product {
     private String name;
     private String brand;
@@ -7,14 +9,16 @@ public abstract class Product {
     private int number;
     private String color;
     private String ID;
+    private String companyName;
 
-    public Product(String name, String brand, double price, int number, String color, String ID) {
+    public Product(String name, String brand, double price, int number, String color, String ID, String companyName) {
         this.name = name;
         this.brand = brand;
         this.price = price;
         this.number = number;
         this.color = color;
         this.ID = ID;
+        this.companyName = companyName;
     }
 
     public String getName() {
@@ -65,6 +69,14 @@ public abstract class Product {
         this.ID = ID;
     }
 
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -73,7 +85,8 @@ public abstract class Product {
                 ", price=" + price +
                 ", number=" + number +
                 ", color='" + color + '\'' +
-                ", ID=" + ID +
-                "}";
+                ", ID='" + ID + '\'' +
+                ", companyName='" + companyName + '\'' +
+                '}';
     }
 }

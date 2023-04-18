@@ -6,8 +6,8 @@ public abstract class NonElectronicTools extends Product {
     private String material;
     private int weight;
 
-    public NonElectronicTools(String name, String brand, double price, int number, String color, String ID, String material, int weight) {
-        super(name, brand, price, number, color, ID);
+    public NonElectronicTools(String name, String brand, double price, int number, String color, String ID, String companyName, String material, int weight) {
+        super(name, brand, price, number, color, ID, companyName);
         this.material = material;
         this.weight = weight;
     }

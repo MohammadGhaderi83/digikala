@@ -4,8 +4,8 @@ public class VacuumCleaner extends KitchenDevices{
     private int enginePower;
     private int powerCableLength;
 
-    public VacuumCleaner(String name, String brand, double price, int number, String color, String ID, double volume, String energyConsumptionChart, int enginePower, int powerCableLength) {
-        super(name, brand, price, number, color, ID, volume, energyConsumptionChart);
+    public VacuumCleaner(String name, String brand, double price, int number, String color, String ID, String companyName, double volume, String energyConsumptionChart, int enginePower, int powerCableLength) {
+        super(name, brand, price, number, color, ID, companyName, volume, energyConsumptionChart);
         this.enginePower = enginePower;
         this.powerCableLength = powerCableLength;
     }

@@ -4,8 +4,8 @@ public class DishWasher extends KitchenDevices{
     private int capacity;
     private int numberOfBaskets;
 
-    public DishWasher(String name, String brand, double price, int number, String color, String ID, double volume, String energyConsumptionChart, int capacity, int numberOfBaskets) {
-        super(name, brand, price, number, color, ID, volume, energyConsumptionChart);
+    public DishWasher(String name, String brand, double price, int number, String color, String ID, String companyName, double volume, String energyConsumptionChart, int capacity, int numberOfBaskets) {
+        super(name, brand, price, number, color, ID, companyName, volume, energyConsumptionChart);
         this.capacity = capacity;
         this.numberOfBaskets = numberOfBaskets;
     }

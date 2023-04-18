@@ -6,8 +6,8 @@ public abstract class ElectronicDevices extends Product {
     private String processor;
     private int storage;
 
-    public ElectronicDevices(String name, String brand, double price, int number, String color, String ID, String processor, int storage) {
-        super(name, brand, price, number, color, ID);
+    public ElectronicDevices(String name, String brand, double price, int number, String color, String ID, String companyName, String processor, int storage) {
+        super(name, brand, price, number, color, ID, companyName);
         this.processor = processor;
         this.storage = storage;
     }

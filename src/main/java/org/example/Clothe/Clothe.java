@@ -6,8 +6,8 @@ public abstract class Clothe extends Product {
     private String material;
     private String genre;
 
-    public Clothe(String name, String brand, double price, int number, String color, String ID, String material, String genre) {
-        super(name, brand, price, number, color, ID);
+    public Clothe(String name, String brand, double price, int number, String color, String ID, String companyName, String material, String genre) {
+        super(name, brand, price, number, color, ID, companyName);
         this.material = material;
         this.genre = genre;
     }

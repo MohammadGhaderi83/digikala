@@ -2,11 +2,11 @@ package org.example;
 
 import org.example.UserBase.User;
 
-public class Request {
+public class WalletRequest {
     User user;
     int amount;
     boolean isChecked;
-    public Request(User user, int amount) {
+    public WalletRequest(User user, int amount) {
         this.user = user;
         this.amount = amount;
     }
@@ -25,6 +25,10 @@ public class Request {
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+    public String getUsername()
+    {
+        return user.getUsername();
     }
     public void increase()
     {

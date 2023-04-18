@@ -6,8 +6,8 @@ public abstract class MusicalInstruments extends Product {
     private int weight;
     private String material;
 
-    public MusicalInstruments(String name, String brand, double price, int number, String color, String ID, int weight, String material) {
-        super(name, brand, price, number, color, ID);
+    public MusicalInstruments(String name, String brand, double price, int number, String color, String ID, String companyName, int weight, String material) {
+        super(name, brand, price, number, color, ID, companyName);
         this.weight = weight;
         this.material = material;
     }

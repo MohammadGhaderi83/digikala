@@ -4,8 +4,8 @@ public class BloodSugarTestMachine extends HealthTool{
     private double minimumBloodRequired;
     private int numberOfTestStrips;
 
-    public BloodSugarTestMachine(String name, String brand, double price, int number, String color, String ID, String supplyPower, String used, double minimumBloodRequired, int numberOfTestStrips) {
-        super(name, brand, price, number, color, ID, supplyPower, used);
+    public BloodSugarTestMachine(String name, String brand, double price, int number, String color, String ID, String companyName, String supplyPower, String used, double minimumBloodRequired, int numberOfTestStrips) {
+        super(name, brand, price, number, color, ID, companyName, supplyPower, used);
         this.minimumBloodRequired = minimumBloodRequired;
         this.numberOfTestStrips = numberOfTestStrips;
     }

@@ -4,8 +4,8 @@ public class Truck extends Vehicle{
     private float numberOfWheels;
     private boolean doesHaveBed;
 
-    public Truck(String name, String brand, double price, int number, String color, String ID, int horsepower, int tankVolume, float numberOfWheels, boolean doesHaveBed) {
-        super(name, brand, price, number, color, ID, horsepower, tankVolume);
+    public Truck(String name, String brand, double price, int number, String color, String ID, String companyName, int horsepower, int tankVolume, float numberOfWheels, boolean doesHaveBed) {
+        super(name, brand, price, number, color, ID, companyName, horsepower, tankVolume);
         this.numberOfWheels = numberOfWheels;
         this.doesHaveBed = doesHaveBed;
     }
