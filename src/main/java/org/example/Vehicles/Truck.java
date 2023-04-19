@@ -2,9 +2,9 @@ package org.example.Vehicles;
 
 public class Truck extends Vehicle{
     private float numberOfWheels;
-    private boolean doesHaveBed;
+    private String doesHaveBed;
 
-    public Truck(String name, String brand, double price, int number, String color, String ID, String companyName, int horsepower, int tankVolume, float numberOfWheels, boolean doesHaveBed) {
+    public Truck(String name, String brand, double price, int number, String color, String ID, String companyName, int horsepower, int tankVolume, float numberOfWheels, String doesHaveBed) {
         super(name, brand, price, number, color, ID, companyName, horsepower, tankVolume);
         this.numberOfWheels = numberOfWheels;
         this.doesHaveBed = doesHaveBed;
@@ -18,11 +18,11 @@ public class Truck extends Vehicle{
         this.numberOfWheels = numberOfWheels;
     }
 
-    public boolean isDoesHaveBed() {
+    public String isDoesHaveBed() {
         return doesHaveBed;
     }
 
-    public void setDoesHaveBed(boolean doesHaveBed) {
+    public void setDoesHaveBed(String doesHaveBed) {
         this.doesHaveBed = doesHaveBed;
     }
 

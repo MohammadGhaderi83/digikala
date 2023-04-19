@@ -4,7 +4,7 @@ public class ElectricEngine extends ElectronicTools{
     private String fuelType;
     private int enginePower;
 
-    public ElectricEngine(String name, String brand, double price, int number, String color, String ID, String companyName, int weight, int powerConsumption, String fuelType, int enginePower) {
+    public ElectricEngine(String name, String brand, double price, int number, String color, String ID, String companyName, double weight, int powerConsumption, String fuelType, int enginePower) {
         super(name, brand, price, number, color, ID, companyName, weight, powerConsumption);
         this.fuelType = fuelType;
         this.enginePower = enginePower;

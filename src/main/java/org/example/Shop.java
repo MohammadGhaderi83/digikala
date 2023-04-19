@@ -36,14 +36,6 @@ public class Shop {
     private ArrayList<Order> orders = new ArrayList<>();
     private ArrayList<BuyRequest> shoppingCart = new ArrayList<>();
     private double totalProfit;
-
-    public double getTotalProfit() {
-        return totalProfit;
-    }
-
-    public void setTotalProfit(double totalProfit) {
-        this.totalProfit = totalProfit;
-    }
     private ArrayList<Seller> sellers = new ArrayList<>();
     private ArrayList<Laptop> laptops = new ArrayList<>();
     private ArrayList<Smartphone> smartphones = new ArrayList<>();
@@ -64,6 +56,15 @@ public class Shop {
     private ArrayList<Car> cars = new ArrayList<>();
     private ArrayList<Truck> trucks = new ArrayList<>();
     private ArrayList<WalletRequest> requests = new ArrayList<WalletRequest>();
+
+
+    public double getTotalProfit() {
+        return totalProfit;
+    }
+
+    public void setTotalProfit(double totalProfit) {
+        this.totalProfit = totalProfit;
+    }
 
     public String getName() {
         return name;
@@ -813,6 +814,63 @@ public class Shop {
             System.out.println(searchTruck(productName));
         } else {
             System.out.println("There is no product according to your search :((");
+        }
+    }
+    public void searchByIDInSearchedListAndDecrease(String ID, String productName, int numOfOrders){
+        if (!searchInLaptop(ID, productName).isEmpty()){
+            Laptop temp = searchInLaptop(ID, productName).get(0);
+            temp.setNumber(temp.getNumber()- numOfOrders);
+        } else if (!searchInSmartphone(ID, productName).isEmpty()){
+            Smartphone temp = searchInSmartphone(ID, productName).get(0);
+            temp.setNumber(temp.getNumber()- numOfOrders);
+        } else if (!searchInShoe(ID, productName).isEmpty()){
+            Shoe temp = searchInShoe(ID, productName).get(0);
+            temp.setNumber(temp.getNumber()- numOfOrders);
+        } else if (!searchInSock(ID, productName).isEmpty()){
+            Sock temp = searchInSock(ID, productName).get(0);
+            temp.setNumber(temp.getNumber()- numOfOrders);
+        } else if (!searchInBloodSugarTest(ID, productName).isEmpty()){
+            BloodSugarTestMachine temp = searchInBloodSugarTest(ID, productName).get(0);
+            temp.setNumber(temp.getNumber()- numOfOrders);
+        } else if (!searchInSphygmomanometer(ID, productName).isEmpty()){
+            Sphygmomanometer temp = searchInSphygmomanometer(ID, productName).get(0);
+            temp.setNumber(temp.getNumber()- numOfOrders);
+        } else if (!searchInElectronicEngine(ID, productName).isEmpty()){
+            ElectricEngine temp = searchInElectronicEngine(ID, productName).get(0);
+            temp.setNumber(temp.getNumber()- numOfOrders);
+        } else if (!searchInCarWash(ID, productName).isEmpty()){
+            CarWash temp = searchInCarWash(ID, productName).get(0);
+            temp.setNumber(temp.getNumber()- numOfOrders);
+        } else if (!searchInDishwasher(ID, productName).isEmpty()){
+            DishWasher temp = searchInDishwasher(ID, productName).get(0);
+            temp.setNumber(temp.getNumber()- numOfOrders);
+        } else if (!searchInSaw(ID, productName).isEmpty()){
+            Saw temp = searchInSaw(ID, productName).get(0);
+            temp.setNumber(temp.getNumber()- numOfOrders);
+        } else if (!searchInVacuumCleaner(ID, productName).isEmpty()){
+            VacuumCleaner temp = searchInVacuumCleaner(ID, productName).get(0);
+            temp.setNumber(temp.getNumber()- numOfOrders);
+        } else if (!searchInGuitar(ID, productName).isEmpty()){
+            Guitar temp = searchInGuitar(ID, productName).get(0);
+            temp.setNumber(temp.getNumber()- numOfOrders);
+        } else if (!searchInViolin(ID, productName).isEmpty()){
+            Violin temp = searchInViolin(ID, productName).get(0);
+            temp.setNumber(temp.getNumber()- numOfOrders);
+        } else if (!searchInHammer(ID, productName).isEmpty()){
+            Hammer temp = searchInHammer(ID, productName).get(0);
+            temp.setNumber(temp.getNumber()- numOfOrders);
+        } else if (!searchInBackpack(ID, productName).isEmpty()){
+            Backpack temp = searchInBackpack(ID, productName).get(0);
+            temp.setNumber(temp.getNumber()- numOfOrders);
+        } else if (!searchInStudyLight(ID, productName).isEmpty()){
+            StudyLight temp = searchInStudyLight(ID, productName).get(0);
+            temp.setNumber(temp.getNumber()- numOfOrders);
+        } else if (!searchInCar(ID, productName).isEmpty()){
+            Car temp = searchInCar(ID, productName).get(0);
+            temp.setNumber(temp.getNumber()- numOfOrders);
+        } else if (!searchInTruck(ID, productName).isEmpty()){
+            Truck temp = searchInTruck(ID, productName).get(0);
+            temp.setNumber(temp.getNumber()- numOfOrders);
         }
     }
     public void addShoppingCartRequest(BuyRequest request){

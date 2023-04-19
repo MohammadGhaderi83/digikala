@@ -4,9 +4,9 @@ import org.example.Product.Product;
 
 public abstract class NonElectronicTools extends Product {
     private String material;
-    private int weight;
+    private double weight;
 
-    public NonElectronicTools(String name, String brand, double price, int number, String color, String ID, String companyName, String material, int weight) {
+    public NonElectronicTools(String name, String brand, double price, int number, String color, String ID, String companyName, String material, double weight) {
         super(name, brand, price, number, color, ID, companyName);
         this.material = material;
         this.weight = weight;
@@ -20,11 +20,11 @@ public abstract class NonElectronicTools extends Product {
         this.material = material;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 

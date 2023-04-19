@@ -113,6 +113,7 @@ public class BuyRequest {
             profitOfShop(productPrice * 0.1);
             user.addToPurchasedProducts(shoppingCart);
             getShoppingCart().setNumOfAvailableItems(shoppingCart.getNumOfAvailableItems()- numOfOrders);
+            shop.searchByIDInSearchedListAndDecrease(ID, shoppingCart.getName(), numOfOrders);
         }
     }
     public void decreaseUserWallet(double price){

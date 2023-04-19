@@ -3,7 +3,7 @@ package org.example.NonElectronicTools;
 public class Hammer extends NonElectronicTools{
     private String crossSectionalSize;
 
-    public Hammer(String name, String brand, double price, int number, String color, String ID, String companyName, String material, int weight, String crossSectionalSize) {
+    public Hammer(String name, String brand, double price, int number, String color, String ID, String companyName, String material, double weight, String crossSectionalSize) {
         super(name, brand, price, number, color, ID, companyName, material, weight);
         this.crossSectionalSize = crossSectionalSize;
     }

@@ -3,20 +3,20 @@ package org.example.ElectronicTools;
 import org.example.Product.Product;
 
 public abstract class ElectronicTools extends Product {
-    private int weight;
+    private double weight;
     private int powerConsumption;
 
-    public ElectronicTools(String name, String brand, double price, int number, String color, String ID, String companyName, int weight, int powerConsumption) {
+    public ElectronicTools(String name, String brand, double price, int number, String color, String ID, String companyName, double weight, int powerConsumption) {
         super(name, brand, price, number, color, ID, companyName);
         this.weight = weight;
         this.powerConsumption = powerConsumption;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 

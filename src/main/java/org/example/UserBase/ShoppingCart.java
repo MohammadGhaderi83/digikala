@@ -73,6 +73,13 @@ public class ShoppingCart {
     public void setPrice(double price) {
         this.price = price;
     }
+    public String getSellerCompanyName() {
+        return sellerCompanyName;
+    }
+
+    public void setSellerCompanyName(String sellerCompanyName) {
+        this.sellerCompanyName = sellerCompanyName;
+    }
     public boolean addProduct(String ID, ShoppingCart shoppingCart){
         if (searchByID(ID).isEmpty()){
             products.add(shoppingCart);
@@ -84,14 +91,6 @@ public class ShoppingCart {
     public Optional<ShoppingCart> searchByID(String ID){
         return products.stream().
                 filter(shoppingCart -> shoppingCart.getID().equals(ID)).findFirst();
-    }
-
-    public String getSellerCompanyName() {
-        return sellerCompanyName;
-    }
-
-    public void setSellerCompanyName(String sellerCompanyName) {
-        this.sellerCompanyName = sellerCompanyName;
     }
 
     @Override

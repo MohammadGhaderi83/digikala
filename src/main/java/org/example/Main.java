@@ -55,23 +55,23 @@ public class Main {
                     "4- View products\n" +
                     "5- Search a product\n" +
                     "6- Exit");
-            int choice = input.nextInt();
-            if (choice == 1)
+            String choice = input.next();
+            if (choice.equals("1"))
             {
                 signInMenu();
-            } else if (choice == 2) {
+            } else if (choice.equals("2")) {
                 signUpMenu();
-            } else if (choice == 3) {
+            } else if (choice.equals("3")) {
                 System.out.println("Name: " + shop.getName());
                 System.out.println("Web address: " + shop.getWebAddress());
                 System.out.println("Support number: " + shop.getSupportNumber());
-            } else if (choice == 4) {
+            } else if (choice.equals("4")) {
                 shop.showProducts();
-            } else if (choice == 5) {
+            } else if (choice.equals("5")) {
                 System.out.println("Please enter the product name: ");
                 String productName = input.next();
                 shop.searchProduct(productName);
-            } else if (choice == 6) {
+            } else if (choice.equals("6")) {
                 runFlag = false;
                 System.out.println("DigiKala is glad to have served");
             } else {
@@ -88,8 +88,8 @@ public class Main {
                     "1- User account\n" +
                     "2- Seller account\n" +
                     "3- Back to menu");
-            int userChoice = input.nextInt();
-            if (userChoice == 1)
+            String userChoice = input.next();
+            if (userChoice.equals("1"))
             {
                 System.out.println("Please enter your username: ");
                 String username = input.next();
@@ -112,7 +112,7 @@ public class Main {
                 } else {
                     System.out.println("Passwords doesn't match! please try again.");
                 }
-            } else if (userChoice == 2){
+            } else if (userChoice.equals("2")){
                 System.out.println("Please enter your company name: ");
                 String username = input.next();
                 System.out.println("Please enter a password: ");
@@ -128,7 +128,7 @@ public class Main {
                 } else {
                     System.out.println("Passwords don't match! please try again.");
                 }
-            } else if (userChoice == 3){
+            } else if (userChoice.equals("3")){
                 System.out.println("I am glad to have served");
                 runFlag = false;
             } else {
@@ -147,8 +147,8 @@ public class Main {
                     "2- Seller\n" +
                     "3- Admin\n" +
                     "4- Back to menu");
-            int userChoice = input.nextInt();
-            if (userChoice == 1){
+            String userChoice = input.next();
+            if (userChoice.equals("1")){
                 System.out.println("Please enter your username: ");
                 String username = input.next();
                 System.out.println("Please enter your password: ");
@@ -160,7 +160,7 @@ public class Main {
                 } else {
                     System.out.println("Wrong username! Please try again");
                 }
-            } else if (userChoice == 2){
+            } else if (userChoice.equals("2")){
                 System.out.println("Please enter your company name: ");
                 String username = input.next();
                 System.out.println("Please enter your password: ");
@@ -172,7 +172,7 @@ public class Main {
                 } else {
                     System.out.println("Wrong company name! Please try again");
                 }
-            } else if (userChoice == 3){
+            } else if (userChoice.equals("3")){
                 System.out.println("Please enter your username: ");
                 String username = input.next();
                 System.out.println("Please enter your password: ");
@@ -184,7 +184,7 @@ public class Main {
                 } else {
                     System.out.println("Wrong username! Please try again");
                 }
-            }else if(userChoice == 4){
+            }else if(userChoice.equals("4")){
                 System.out.println("I am glad to have served");
                 runFlag = false;
             }else {
@@ -207,11 +207,11 @@ public class Main {
                     "7- Show Shopping Cart\n"+
                     "8- Buy a product\n" +
                     "9- Back");
-            int userChoice = input.nextInt();
-            if (userChoice == 1)
+            String userChoice = input.next();
+            if (userChoice.equals("1"))
             {
                 shop.userProfile(user.getPassword());
-            } else if (userChoice == 2)
+            } else if (userChoice.equals("2"))
             {
                 boolean runFlag1 = true;
                 while(runFlag1)
@@ -220,14 +220,14 @@ public class Main {
                             "1- Change username\n" +
                             "2- Change password\n" +
                             "3- Back");
-                    int userChoice1 = input.nextInt();
-                    if (userChoice1 == 1)
+                    String userChoice1 = input.next();
+                    if (userChoice1.equals("1"))
                     {
                         System.out.println("enter your new username: ");
                         String newUsername = input.next();
                         user.setUsername(newUsername);
                         System.out.println("username changed successfully");
-                    } else if (userChoice1 == 2)
+                    } else if (userChoice1.equals("2"))
                     {
                         System.out.println("Please enter a new password");
                         String newPassword = input.next();
@@ -244,7 +244,7 @@ public class Main {
                         } else {
                             System.out.println("Passwords don't match! please try again.");
                         }
-                    } else if (userChoice1 == 3)
+                    } else if (userChoice1.equals("3"))
                     {
                         System.out.println("I am glad to have served");
                         runFlag1 = false;
@@ -253,19 +253,19 @@ public class Main {
                     }
                 }
 
-            } else if (userChoice == 3) {
+            } else if (userChoice.equals("3")) {
                 shop.showProducts();
-            } else if (userChoice == 4) {
+            } else if (userChoice.equals("4")) {
                 String message = shop.userLogout(user.getPassword()) ? "Done!" : "it didn't work";
                 System.out.println(message);
                 signUpMenu();
-            } else if (userChoice == 5) {
+            } else if (userChoice.equals("5")) {
                 System.out.println("how much do you want to increase?");
                 int amount = input.nextInt();
                 WalletRequest request = new WalletRequest(user, amount);
                 shop.addRequest(request);
                 System.out.println("Wait until admin respond to your request");
-            } else if (userChoice == 6){
+            } else if (userChoice.equals("6")){
                 ShoppingCart shoppingCart = new ShoppingCart();
                 System.out.println("Please enter the product name: ");
                 String productName = input.next();
@@ -435,13 +435,13 @@ public class Main {
                 } else {
                     System.out.println("There is no product according to your search :((");
                 }
-            } else if (userChoice == 7) {
+            } else if (userChoice.equals("7")) {
                 if (!user.showShoppingCart().isEmpty()){
                     System.out.println(user.showShoppingCart());
                 } else {
                     System.out.println("Your shopping cart is empty!");
                 }
-            } else if (userChoice == 8) {
+            } else if (userChoice.equals("8")) {
                 System.out.println(user.showShoppingCart());
                 System.out.println("If you want to buy any of the products in your list please enter it's ID(if you want to back enter b.):");
                 String ID = input.next();
@@ -458,7 +458,7 @@ public class Main {
                         System.out.println("Yor request sent to our admins wait for their respond!");
                     }
                 }
-            } else if (userChoice == 9){
+            } else if (userChoice.equals("9")){
                 System.out.println("I am glad to have served");
                 runFlag = false;
             } else {
@@ -477,24 +477,24 @@ public class Main {
                     "3- List of available products\n" +
                     "4- Add product\n" +
                     "5- Back");
-            int choice = input.nextInt();
-            if (choice == 1)
+            String choice = input.next();
+            if (choice.equals("1"))
             {
                 shop.sellerProfile(seller.getPassword());
-            } else if(choice == 2)
+            } else if(choice.equals("2"))
             {
                 System.out.println("What do you want to change?\n" +
                         "1- Change username\n" +
                         "2- Change password\n" +
                         "3- Back");
-                int userChoice = input.nextInt();
-                if (userChoice == 1)
+                String userChoice = input.next();
+                if (userChoice.equals("1"))
                 {
                     System.out.println("enter your new company name: ");
                     String newUsername = input.next();
                     seller.setUsername(newUsername);
                     System.out.println("company name changed successfully");
-                } else if (userChoice == 2)
+                } else if (userChoice.equals("2"))
                 {
                     System.out.println("Please enter a new password");
                     String newPassword = input.next();
@@ -511,17 +511,17 @@ public class Main {
                     } else {
                         System.out.println("Passwords don't match! please try again.");
                     }
-                } else if (userChoice == 3)
+                } else if (userChoice.equals("3"))
                 {
                     System.out.println("I am glad to have served");
                     runFlag = false;
                 } else {
                     System.out.println("Invalid input! please try again.");
                 }
-            } else if (choice == 3)
+            } else if (choice.equals("3"))
             {
                 shop.showProducts();
-            } else if (choice == 4)
+            } else if (choice.equals("4"))
             {
                 System.out.println("To witch category you want to add:\n" +
                         "1- Clothe\n" +
@@ -533,14 +533,14 @@ public class Main {
                         "7- Non electronic tools\n" +
                         "8- Stationary\n" +
                         "9- Vehicle");
-                int sellerChoice1 = input.nextInt();
-                if (sellerChoice1 == 1)
+                String sellerChoice1 = input.next();
+                if (sellerChoice1.equals("1"))
                 {
                     System.out.println("To witch type you want to add:\n" +
                             "1- Shoe\n" +
                             "2- Sock");
-                    int sellerChoice2 = input.nextInt();
-                    if (sellerChoice2 == 1)
+                    String sellerChoice2 = input.next();
+                    if (sellerChoice2.equals("1"))
                     {
                         System.out.println("Please enter it's name: ");
                         String name = input.next();
@@ -564,7 +564,7 @@ public class Main {
                         shop.addSho(shoe);
                         seller.addSho(shoe);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
-                    } else if (sellerChoice2 == 2)
+                    } else if (sellerChoice2.equals("2"))
                     {
                         System.out.println("Please enter it's name: ");
                         String name = input.next();
@@ -589,13 +589,13 @@ public class Main {
                         seller.addSock(sock);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     }
-                } else if (sellerChoice1 == 2)
+                } else if (sellerChoice1.equals("2"))
                 {
                     System.out.println("To witch type you want to add:\n" +
                             "1- Laptop\n" +
                             "2- SmartPhone");
-                    int sellerChoice2 = input.nextInt();
-                    if (sellerChoice2 == 1)
+                    String sellerChoice2 = input.next();
+                    if (sellerChoice2.equals("1"))
                     {
                         System.out.println("Please enter it's name: ");
                         String name = input.next();
@@ -621,7 +621,7 @@ public class Main {
                         shop.addLaptop(laptop);
                         seller.addLaptop(laptop);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
-                    } else if (sellerChoice2 == 2)
+                    } else if (sellerChoice2.equals("2"))
                     {
                         System.out.println("Please enter it's name: ");
                         String name = input.next();
@@ -648,13 +648,13 @@ public class Main {
                         seller.addSmartphones(smartphone);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     }
-                } else if (sellerChoice1 == 3)
+                } else if (sellerChoice1.equals("3"))
                 {
                     System.out.println("To witch type you want to add:\n" +
                             "1- CarWash\n" +
                             "2- Electric Engine");
-                    int sellerChoice2 = input.nextInt();
-                    if (sellerChoice2 == 1)
+                    String sellerChoice2 = input.next();
+                    if (sellerChoice2.equals("1"))
                     {
                         System.out.println("Please enter it's name: ");
                         String name = input.next();
@@ -669,7 +669,7 @@ public class Main {
 //                        System.out.println("Please enter the ID: ");
                         String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's weight: ");
-                        int weight = input.nextInt();
+                        double weight = input.nextInt();
                         System.out.println("Please enter it's power consumption: ");
                         int powerConsumption = input.nextInt();
                         System.out.println("Please enter it's maximum water temperature: ");
@@ -680,7 +680,7 @@ public class Main {
                         shop.addCarWash(carWash);
                         seller.addCarWash(carWash);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
-                    } else if (sellerChoice2 == 2)
+                    } else if (sellerChoice2.equals("2"))
                     {
                         System.out.println("Please enter it's name: ");
                         String name = input.next();
@@ -695,7 +695,7 @@ public class Main {
 //                        System.out.println("Please enter the ID: ");
                         String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's weight: ");
-                        int weight = input.nextInt();
+                        double weight = input.nextInt();
                         System.out.println("Please enter it's power consumption: ");
                         int powerConsumption = input.nextInt();
                         System.out.println("Please enter it's fuel type: ");
@@ -707,13 +707,13 @@ public class Main {
                         seller.addElectricEngine(electricEngine);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     }
-                } else if (sellerChoice1 == 4)
+                } else if (sellerChoice1.equals("4"))
                 {
                     System.out.println("To witch type you want to add:\n" +
                             "1- BloodSugarTestMachine\n" +
                             "2- Sphygmomanometer");
-                    int sellerChoice2 = input.nextInt();
-                    if (sellerChoice2 == 1)
+                    String sellerChoice2 = input.next();
+                    if (sellerChoice2.equals("1"))
                     {
                         System.out.println("Please enter it's name: ");
                         String name = input.next();
@@ -739,7 +739,7 @@ public class Main {
                         shop.addBloodSugarTestMachine(bloodSugarTestMachine);
                         seller.addBloodSugarTestMachine(bloodSugarTestMachine);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
-                    } else if (sellerChoice2 == 2)
+                    } else if (sellerChoice2.equals("2"))
                     {
                         System.out.println("Please enter it's name: ");
                         String name = input.next();
@@ -766,13 +766,13 @@ public class Main {
                         seller.addSphygmomanometer(sphygmomanometer);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     }
-                } else if(sellerChoice1 == 5)
+                } else if(sellerChoice1.equals("5"))
                 {
                     System.out.println("To witch type you want to add:\n" +
                             "1- Dish Washer\n" +
                             "2- Vacuum Cleaner");
-                    int sellerChoice2 = input.nextInt();
-                    if (sellerChoice2 == 1)
+                    String sellerChoice2 = input.next();
+                    if (sellerChoice2.equals("1"))
                     {
                         System.out.println("Please enter it's name: ");
                         String name = input.next();
@@ -798,7 +798,7 @@ public class Main {
                         shop.addDishWasher(dishWasher);
                         seller.addDishWasher(dishWasher);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
-                    } else if(sellerChoice2 == 2)
+                    } else if(sellerChoice2.equals("2"))
                     {
                         System.out.println("Please enter it's name: ");
                         String name = input.next();
@@ -825,13 +825,13 @@ public class Main {
                         seller.addVacuumCleaner(vacuumCleaner);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     }
-                } else if (sellerChoice1 == 6)
+                } else if (sellerChoice1.equals("6"))
                 {
                     System.out.println("To witch type you want to add:\n" +
                             "1- Guitar\n" +
                             "2- Violin");
-                    int sellerChoice2 = input.nextInt();
-                    if (sellerChoice2 == 1)
+                    String sellerChoice2 = input.next();
+                    if (sellerChoice2.equals("1"))
                     {
                         System.out.println("Please enter it's name: ");
                         String name = input.next();
@@ -846,7 +846,7 @@ public class Main {
 //                        System.out.println("Please enter the ID: ");
                         String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's weight: ");
-                        int weight = input.nextInt();
+                        double weight = input.nextInt();
                         System.out.println("Please enter it's material: ");
                         String material = input.next();
                         System.out.println("Please enter it's wires number: ");
@@ -857,7 +857,7 @@ public class Main {
                         shop.addGuitar(guitar);
                         seller.addGuitar(guitar);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
-                    } else if (sellerChoice2 == 2)
+                    } else if (sellerChoice2.equals("2"))
                     {
                         System.out.println("Please enter it's name: ");
                         String name = input.next();
@@ -872,7 +872,7 @@ public class Main {
 //                        System.out.println("Please enter the ID: ");
                         String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's weight: ");
-                        int weight = input.nextInt();
+                        double weight = input.nextInt();
                         System.out.println("Please enter it's material: ");
                         String material = input.next();
                         System.out.println("Please enter it's chin material: ");
@@ -884,13 +884,13 @@ public class Main {
                         seller.addViolin(violin);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     }
-                } else if (sellerChoice1 == 7)
+                } else if (sellerChoice1.equals("7"))
                 {
                     System.out.println("To witch type you want to add:\n" +
                             "1- Hammer\n" +
                             "2- Saw");
-                    int sellerChoice2 = input.nextInt();
-                    if (sellerChoice2 == 1)
+                    String sellerChoice2 = input.next();
+                    if (sellerChoice2.equals("1"))
                     {
                         System.out.println("Please enter it's name: ");
                         String name = input.next();
@@ -905,7 +905,7 @@ public class Main {
 //                        System.out.println("Please enter the ID: ");
                         String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's weight: ");
-                        int weight = input.nextInt();
+                        double weight = input.nextInt();
                         System.out.println("Please enter it's material: ");
                         String material = input.next();
                         System.out.println("Please enter it's cross sectional size: ");
@@ -914,7 +914,7 @@ public class Main {
                         shop.addHammer(hammer);
                         seller.addHammer(hammer);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
-                    } else if (sellerChoice2 == 2)
+                    } else if (sellerChoice2.equals("2"))
                     {
                         System.out.println("Please enter it's name: ");
                         String name = input.next();
@@ -929,7 +929,7 @@ public class Main {
 //                        System.out.println("Please enter the ID: ");
                         String ID = String.valueOf(shop.IDGenerator());
                         System.out.println("Please enter it's weight: ");
-                        int weight = input.nextInt();
+                        double weight = input.nextInt();
                         System.out.println("Please enter it's material: ");
                         String material = input.next();
                         System.out.println("Please enter it's iron blade length: ");
@@ -941,13 +941,13 @@ public class Main {
                         seller.addSaw(saw);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     }
-                } else if (sellerChoice1 == 8)
+                } else if (sellerChoice1.equals("8"))
                 {
                     System.out.println("To witch type you want to add:\n" +
                             "1- Backpack\n" +
                             "2- Study light");
-                    int sellerChoice2 = input.nextInt();
-                    if (sellerChoice2 == 1)
+                    String sellerChoice2 = input.next();
+                    if (sellerChoice2.equals("1"))
                     {
                         System.out.println("Please enter it's name: ");
                         String name = input.next();
@@ -973,7 +973,7 @@ public class Main {
                         shop.addBackpack(backpack);
                         seller.addBackpack(backpack);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
-                    } else if (sellerChoice2 == 2)
+                    } else if (sellerChoice2.equals("2"))
                     {
                         System.out.println("Please enter it's name: ");
                         String name = input.next();
@@ -1000,13 +1000,13 @@ public class Main {
                         seller.addStudyLight(studyLight);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
                     }
-                } else if (sellerChoice1 == 9)
+                } else if (sellerChoice1.equals("9"))
                 {
                     System.out.println("To witch type you want to add:\n" +
                             "1- Car\n" +
                             "2- Truck");
-                    int sellerChoice2 = input.nextInt();
-                    if (sellerChoice2 == 1)
+                    String sellerChoice2 = input.next();
+                    if (sellerChoice2.equals("1"))
                     {
                         System.out.println("Please enter it's name: ");
                         String name = input.next();
@@ -1030,7 +1030,7 @@ public class Main {
                         shop.addCar(car);
                         seller.addCar(car);
                         System.out.println(seller.getUsername() + " added " + number + " product of " + name + " by brand " + brand);
-                    } else if (sellerChoice2 == 2)
+                    } else if (sellerChoice2.equals("2"))
                     {
                         System.out.println("Please enter it's name: ");
                         String name = input.next();
@@ -1051,7 +1051,7 @@ public class Main {
                         System.out.println("Please enter it's number of wheels: ");
                         float numOfWheels = input.nextFloat();
                         System.out.println("Dose it have any bed?");
-                        boolean doseItHaveBed = input.hasNext();
+                        String doseItHaveBed = input.next();
                         Truck truck = new Truck(name, brand, price, number, color,ID , seller.getUsername(), horsePower, tankVolume, numOfWheels, doseItHaveBed);
                         shop.addTrucks(truck);
                         seller.addTrucks(truck);
@@ -1060,7 +1060,7 @@ public class Main {
                 } else{
                     System.out.println("Invalid input");
                 }
-            } else if (choice == 5){
+            } else if (choice.equals("4")){
                 System.out.println("I am glad to have served");
                 runFlag = false;
             } else {
@@ -1084,23 +1084,23 @@ public class Main {
                     "7- Wallet Request list\n" +
                     "8- Buy request list\n" +
                     "9- Back");
-            int choice = input.nextInt();
-            if (choice == 1)
+            String choice = input.next();
+            if (choice.equals("1"))
             {
                 shop.adminProfile(admin.getPassword());
-            } else if (choice == 2){
+            } else if (choice.equals("2")){
                 System.out.println("What do you want to change?\n" +
                         "1- Change username\n" +
                         "2- Change password\n" +
                         "3- Back");
-                int userChoice = input.nextInt();
-                if (userChoice == 1)
+                String userChoice = input.next();
+                if (userChoice.equals("1"))
                 {
                     System.out.println("enter your new username: ");
                     String newUsername = input.next();
                     admin.setUsername(newUsername);
                     System.out.println("username changed successfully");
-                } else if (userChoice == 2)
+                } else if (userChoice.equals("2"))
                 {
                     System.out.println("Please enter a new password");
                     String newPassword = input.next();
@@ -1117,24 +1117,24 @@ public class Main {
                     } else {
                         System.out.println("Passwords don't match! please try again.");
                     }
-                } else if (userChoice == 3)
+                } else if (userChoice.equals("3"))
                 {
                     System.out.println("I am glad to have served");
                     runFlag = false;
                 } else {
                     System.out.println("Invalid input! please try again.");
                 }
-            } else if (choice == 3)
+            } else if (choice.equals("3"))
             {
                 System.out.println("Please enter a password: ");
                 String password = input.next();
                 shop.userProfile(password);
-            } else if (choice == 4)
+            } else if (choice.equals("4"))
             {
                 System.out.println("Please enter a password: ");
                 String password = input.next();
                 shop.sellerProfile(password);
-            } else if (choice == 5)
+            } else if (choice.equals("5"))
             {
                 System.out.println("Enter a username: ");
                 String username = input.next();
@@ -1151,10 +1151,10 @@ public class Main {
                 } else {
                     System.out.println("Passwords don't match! PLease try again.");
                 }
-            } else if (choice == 6)
+            } else if (choice.equals("6"))
             {
                 System.out.println(shop.getTotalProfit());
-            } else if (choice == 7)
+            } else if (choice.equals("7"))
             {
                 for (WalletRequest request : shop.getRequests())
                 {
@@ -1175,7 +1175,7 @@ public class Main {
                     shop.removeRequest(request);
                     break;
                 }
-            } else if (choice == 8){
+            } else if (choice.equals("8")){
                 for (BuyRequest request : shop.getShoppingCart()){
                     System.out.println("User: " + request.getUser());
                     System.out.println("Seller: " + request.getSeller());
@@ -1198,7 +1198,7 @@ public class Main {
                     shop.removeShoppingCartRequest(request.getShoppingCart());
                     break;
                 }
-            } else if (choice == 9)
+            } else if (choice.equals("p"))
             {
                 System.out.println("I am glad to have served");
                 runFlag = false;
