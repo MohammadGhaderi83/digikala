@@ -5,21 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="712d8b02-6276-405c-851c-0fb74eea4908" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BuyRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BuyRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ElectronicTools/CarWash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ElectronicTools/CarWash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ElectronicTools/ElectricEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ElectronicTools/ElectricEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ElectronicTools/ElectronicTools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ElectronicTools/ElectronicTools.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MusicalInstruments/Guitar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MusicalInstruments/Guitar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MusicalInstruments/MusicalInstruments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MusicalInstruments/MusicalInstruments.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MusicalInstruments/Violin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MusicalInstruments/Violin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/NonElectronicTools/Hammer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/NonElectronicTools/Hammer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/NonElectronicTools/NonElectronicTools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/NonElectronicTools/NonElectronicTools.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/NonElectronicTools/Saw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/NonElectronicTools/Saw.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Shop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/UserBase/ShoppingCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/UserBase/ShoppingCart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Vehicles/Truck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Vehicles/Truck.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
