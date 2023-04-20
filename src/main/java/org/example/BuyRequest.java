@@ -108,9 +108,9 @@ public class BuyRequest {
     }
     public void increase(){
         if (isChecked){
-            decreaseUserWallet(productPrice);
-            increaseSellerWallet(productPrice * 0.9);
-            profitOfShop(productPrice * 0.1);
+            decreaseUserWallet(numOfOrders*productPrice);
+            increaseSellerWallet(numOfOrders*(productPrice * 0.9));
+            profitOfShop(numOfOrders*(productPrice * 0.1));
             user.addToPurchasedProducts(shoppingCart);
             getShoppingCart().setNumOfAvailableItems(shoppingCart.getNumOfAvailableItems()- numOfOrders);
             shop.searchByIDInSearchedListAndDecrease(ID, shoppingCart.getName(), numOfOrders);
@@ -125,6 +125,7 @@ public class BuyRequest {
     public void profitOfShop(double shopProfit){
         shop.setTotalProfit(shopProfit);
     }
+
     @Override
     public String toString() {
         return "BuyRequest{" +
@@ -132,6 +133,12 @@ public class BuyRequest {
                 ", seller=" + seller +
                 ", productPrice=" + productPrice +
                 ", userWallet=" + userWallet +
+                ", isChecked=" + isChecked +
+                ", numOfAvaItems=" + numOfAvaItems +
+                ", numOfOrders=" + numOfOrders +
+                ", shop=" + shop +
+                ", shoppingCart=" + shoppingCart +
+                ", ID='" + ID + '\'' +
                 '}';
     }
 }
