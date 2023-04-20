@@ -15,4 +15,11 @@ public class Admin extends UserBase{
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "->" + "Admin{" +
+                "emailAddress='" + emailAddress + '\'' +
+                '}';
+    }
 }

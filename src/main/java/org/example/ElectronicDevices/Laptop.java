@@ -2,9 +2,9 @@ package org.example.ElectronicDevices;
 
 public class Laptop extends ElectronicDevices{
     private int RAM;
-    private int weight;
+    private double weight;
 
-    public Laptop(String name, String brand, double price, int number, String color, String ID, String companyName, String processor, int storage, int RAM, int weight) {
+    public Laptop(String name, String brand, double price, int number, String color, String ID, String companyName, String processor, int storage, int RAM, double weight) {
         super(name, brand, price, number, color, ID, companyName, processor, storage);
         this.RAM = RAM;
         this.weight = weight;
@@ -18,11 +18,11 @@ public class Laptop extends ElectronicDevices{
         this.RAM = RAM;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 

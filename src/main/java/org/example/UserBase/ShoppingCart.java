@@ -1,5 +1,8 @@
 package org.example.UserBase;
 
+import org.example.CurrentDate;
+
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -12,6 +15,7 @@ public class ShoppingCart {
     ArrayList<ShoppingCart> products = new ArrayList<>();
     private String sellerCompanyName;
     private int numOfAvailableItems;
+    private LocalDateTime date;
 
     public ShoppingCart() {
     }
@@ -24,6 +28,14 @@ public class ShoppingCart {
         this.price = price;
         this.sellerCompanyName = sellerCompanyName;
         this.numOfAvailableItems = numOfAvailableItems;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(CurrentDate date) {
+        this.date = date.getNow();
     }
 
     public int getNumOfAvailableItems() {
@@ -103,6 +115,8 @@ public class ShoppingCart {
                 ", price=" + price +
                 ", products=" + products +
                 ", sellerCompanyName='" + sellerCompanyName + '\'' +
+                ", numOfAvailableItems=" + numOfAvailableItems +
+                ", date=" + date +
                 "}\n";
     }
 }

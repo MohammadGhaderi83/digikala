@@ -125,6 +125,7 @@ public class BuyRequest {
     public void profitOfShop(double shopProfit){
         shop.setTotalProfit(shopProfit);
     }
+
     @Override
     public String toString() {
         return "BuyRequest{" +
@@ -132,6 +133,12 @@ public class BuyRequest {
                 ", seller=" + seller +
                 ", productPrice=" + productPrice +
                 ", userWallet=" + userWallet +
+                ", isChecked=" + isChecked +
+                ", numOfAvaItems=" + numOfAvaItems +
+                ", numOfOrders=" + numOfOrders +
+                ", shop=" + shop +
+                ", shoppingCart=" + shoppingCart +
+                ", ID='" + ID + '\'' +
                 '}';
     }
 }
