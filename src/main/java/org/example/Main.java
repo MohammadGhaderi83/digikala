@@ -1096,7 +1096,7 @@ public class Main {
                 } else{
                     System.out.println("Invalid input");
                 }
-            } else if (choice.equals("4")){
+            } else if (choice.equals("5")){
                 System.out.println("I am glad to have served");
                 runFlag = false;
             } else {

@@ -108,9 +108,9 @@ public class BuyRequest {
     }
     public void increase(){
         if (isChecked){
-            decreaseUserWallet(productPrice);
-            increaseSellerWallet(productPrice * 0.9);
-            profitOfShop(productPrice * 0.1);
+            decreaseUserWallet(numOfOrders*productPrice);
+            increaseSellerWallet(numOfOrders*(productPrice * 0.9));
+            profitOfShop(numOfOrders*(productPrice * 0.1));
             user.addToPurchasedProducts(shoppingCart);
             getShoppingCart().setNumOfAvailableItems(shoppingCart.getNumOfAvailableItems()- numOfOrders);
             shop.searchByIDInSearchedListAndDecrease(ID, shoppingCart.getName(), numOfOrders);
