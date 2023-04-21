@@ -1,8 +1,5 @@
 package org.example.UserBase;
-
 import org.example.CurrentDate;
-
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -15,12 +12,11 @@ public class ShoppingCart {
     ArrayList<ShoppingCart> products = new ArrayList<>();
     private String sellerCompanyName;
     private int numOfAvailableItems;
-    private LocalDateTime date;
+    private String date;
 
     public ShoppingCart() {
     }
-
-    public ShoppingCart(String name, String brand, String category, String ID, double price, String sellerCompanyName, int numOfAvailableItems) {
+    public ShoppingCart(String name, String brand, String category, String ID, double price, String sellerCompanyName, int numOfAvailableItems, String date) {
         this.name = name;
         this.brand = brand;
         this.category = category;
@@ -28,9 +24,10 @@ public class ShoppingCart {
         this.price = price;
         this.sellerCompanyName = sellerCompanyName;
         this.numOfAvailableItems = numOfAvailableItems;
+        this.date = date;
     }
 
-    public LocalDateTime getDate() {
+    public String getDate() {
         return date;
     }
 
@@ -115,7 +112,6 @@ public class ShoppingCart {
                 ", price=" + price +
                 ", products=" + products +
                 ", sellerCompanyName='" + sellerCompanyName + '\'' +
-                ", numOfAvailableItems=" + numOfAvailableItems +
                 ", date=" + date +
                 "}\n";
     }
