@@ -14,6 +14,7 @@ import org.example.MusicalInstruments.Guitar;
 import org.example.MusicalInstruments.Violin;
 import org.example.NonElectronicTools.Hammer;
 import org.example.NonElectronicTools.Saw;
+import org.example.Product.Product;
 import org.example.Stationary.Backpack;
 import org.example.Stationary.StudyLight;
 import org.example.UserBase.Admin;
@@ -24,7 +25,10 @@ import org.example.Vehicles.Car;
 import org.example.Vehicles.Truck;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashSet;
+import java.util.Random;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Main {
     static Scanner input = new Scanner(System.in);

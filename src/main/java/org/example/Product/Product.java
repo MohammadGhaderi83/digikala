@@ -1,6 +1,9 @@
 package org.example.Product;
 
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 
 public abstract class Product {
     private String name;
@@ -19,6 +22,9 @@ public abstract class Product {
         this.color = color;
         this.ID = ID;
         this.companyName = companyName;
+    }
+
+    public Product() {
     }
 
     public String getName() {
