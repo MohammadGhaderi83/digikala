@@ -615,13 +615,19 @@ public class Shop {
         return  truckList.stream().
                 filter(truck -> truck.getID().equals(ID)).collect(Collectors.toList());
     }
-    public void addOrder(Order order){
-        orders.add(order);
-    }
-    public  int IDGenerator(){
+    static Set<Integer> IDRandomSaver = new HashSet<>();
+    public int IDGenerator(){
         Random random = new Random();
         int IDNumber = random.nextInt(9000) + 1000 ;
-        return IDNumber;
+        if (IDRandomSaver.contains(IDNumber)){
+            return IDGenerator();
+        } else {
+            IDRandomSaver.add(IDNumber);
+            return IDNumber;
+        }
+    }
+    public void addOrder(Order order){
+        orders.add(order);
     }
     public void showProducts(){
         int counter = 0;

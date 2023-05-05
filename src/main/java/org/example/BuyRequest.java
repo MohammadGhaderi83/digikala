@@ -125,7 +125,12 @@ public class BuyRequest {
     public void profitOfShop(double shopProfit){
         shop.setTotalProfit(shopProfit);
     }
-
+    public String canUserPayOff(){
+        if (user.getWallet() >= productPrice*numOfOrders){
+            return "Yes, user has enough money in the wallet!";
+        }
+        return "No, User need to increases the wallet!";
+    }
     @Override
     public String toString() {
         return "BuyRequest{" +

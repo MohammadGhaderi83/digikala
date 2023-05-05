@@ -14,6 +14,7 @@ import org.example.MusicalInstruments.Guitar;
 import org.example.MusicalInstruments.Violin;
 import org.example.NonElectronicTools.Hammer;
 import org.example.NonElectronicTools.Saw;
+import org.example.Product.Product;
 import org.example.Stationary.Backpack;
 import org.example.Stationary.StudyLight;
 import org.example.UserBase.Admin;
@@ -24,18 +25,21 @@ import org.example.Vehicles.Car;
 import org.example.Vehicles.Truck;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashSet;
+import java.util.Random;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Main {
     static Scanner input = new Scanner(System.in);
     static Shop shop = new Shop();
     public static void main(String[] args) {
         System.out.println("** Welcome to the online shop **");
-        User user = new User("username","password","mamad@gmail.com","09153346894","ads", 600000);
+        User user = new User("username","password","mamad@gmail.com","09153346894","Iran-Tehran-Evin-SBU", 600000);
         User user1 = new User("mamad","123","ghader@gmailcom","0912456789","assdsdklf fggjfdlkg fklkf", 0);
         Admin admin = new Admin("admin", "password1","nobari@gmail.com");
         Seller seller = new Seller("seller", "password2",12);
-        Laptop laptop = new Laptop("zBook","hp",50000, 5, "silver", "123","seller", "intel", 256, 16, 3);
+        Laptop laptop = new Laptop("zBook","hp",47320, 5, "silver", "123","seller", "intel", 256, 16, 3);
         shop.addLaptop(laptop);
         shop.createAccountUser(user);
         shop.createAccountUser(user1);
@@ -105,10 +109,15 @@ public class Main {
                 String address = input.next();
                 if (password.equals(confirmPassword))
                 {
-                    User user = new User(username, password, emailAddress, phoneNumber, address,0);
-                    String message =  shop.createAccountUser(user) ? username + " successfully added!" : "there is exist a password same you have entered!";
-                    System.out.println(message);
-                    userMenu(user);
+                    if (!shop.userLogin(password)) {
+
+                        User user = new User(username, password, emailAddress, phoneNumber, address, 0);
+                        userMenu(user);
+                        String message = shop.createAccountUser(user) ? username + " successfully added!" : "there is exist a password same you have entered!";
+                        System.out.println(message);
+                    } else {
+                        System.err.println("There is exist a user with this password(Passwords must be unique!)");
+                    }
                 } else {
                     System.out.println("Passwords doesn't match! please try again.");
                 }
@@ -121,10 +130,14 @@ public class Main {
                 String confirmPassword = input.next();
                 if (password.equals(confirmPassword))
                 {
-                    Seller seller = new Seller(username, password);
-                    String message = shop.createAccountSeller(seller) ? username + " successfully added!" : "there is exist a password same you have entered!";
-                    System.out.println(message);
-                    sellerMenu(seller);
+                    if (shop.sellerLogin(password)) {
+                        Seller seller = new Seller(username, password);
+                        sellerMenu(seller);
+                        String message = shop.createAccountSeller(seller) ? username + " successfully added!" : "there is exist a password same you have entered!";
+                        System.out.println(message);
+                    } else {
+                        System.err.println("There is exist a seller with this password(Passwords must be unique!)");
+                    }
                 } else {
                     System.out.println("Passwords don't match! please try again.");
                 }
@@ -199,7 +212,6 @@ public class Main {
             }else if(userChoice.equals("4")){
                 System.out.println("I am glad to have served");
                 runFlag = false;
-                runMenu();
             }else {
                 System.out.println("Invalid input! please try again.");
             }
@@ -287,6 +299,7 @@ public class Main {
                 shop.addRequest(request);
                 System.out.println("Wait until admin respond to your request");
             } else if (userChoice.equals("6")){
+                CurrentDate currentDate = new CurrentDate();
                 ShoppingCart shoppingCart = new ShoppingCart();
                 System.out.println("Please enter the product name: ");
                 String productName = input.next();
@@ -296,198 +309,270 @@ public class Main {
                     System.out.println("If you want to add a product to your shopping cart Please enter it's ID(if you want to back enter b): ");
                     String ID = input.next();
                     if (!ID.equalsIgnoreCase("b")){
-                        System.out.println(shop.searchInLaptop(ID, productName));
-                        Laptop temp = shop.searchInLaptop(ID, productName).get(0);
-                        ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Electronic devices", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
-                        shoppingCart.addProduct(ID, product);
-                        user.addProduct(ID, product);
+                        if (!shop.searchInLaptop(ID, productName).isEmpty()) {
+                            System.out.println(shop.searchInLaptop(ID, productName));
+                            Laptop temp = shop.searchInLaptop(ID, productName).get(0);
+                            ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Electronic devices", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber(), currentDate.getNow());
+                            shoppingCart.addProduct(ID, product);
+                            user.addProduct(ID, product);
+                        } else {
+                            System.out.println("There is no product with this ID:)");
+                        }
                     }
                 } else if (!shop.searchSmartphone(productName).isEmpty()){
                     System.out.println(shop.searchSmartphone(productName));
                     System.out.println("If you want to add a product to your shopping cart Please enter it's ID(if you want to back enter b): ");
                     String ID = input.next();
                     if (!ID.equalsIgnoreCase("b")){
-                        System.out.println(shop.searchInSmartphone(ID, productName));
-                        Smartphone temp = shop.searchInSmartphone(ID, productName).get(0);
-                        ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Electronic devices", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
-                        shoppingCart.addProduct(ID, product);
-                        user.addProduct(ID, product);
+                        if (!shop.searchInSmartphone(ID, productName).isEmpty()) {
+                            System.out.println(shop.searchInSmartphone(ID, productName));
+                            Smartphone temp = shop.searchInSmartphone(ID, productName).get(0);
+                            ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Electronic devices", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber(), currentDate.getNow());
+                            shoppingCart.addProduct(ID, product);
+                            user.addProduct(ID, product);
+                        } else {
+                            System.out.println("There is no product with this ID:)");
+                        }
                     }
                 } else if (!shop.searchShoe(productName).isEmpty()){
                     System.out.println(shop.searchShoe(productName));
                     System.out.println("If you want to add a product to your shopping cart Please enter it's ID(if you want to back enter b): ");
                     String ID = input.next();
                     if (!ID.equalsIgnoreCase("b")){
-                        System.out.println(shop.searchInShoe(ID, productName));
-                        Shoe temp = shop.searchInShoe(ID, productName).get(0);
-                        ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Clothe", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
-                        shoppingCart.addProduct(ID, product);
-                        user.addProduct(ID, product);
+                        if (!shop.searchInShoe(ID, productName).isEmpty()) {
+                            System.out.println(shop.searchInShoe(ID, productName));
+                            Shoe temp = shop.searchInShoe(ID, productName).get(0);
+                            ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Clothe", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber(), currentDate.getNow());
+                            shoppingCart.addProduct(ID, product);
+                            user.addProduct(ID, product);
+                        } else {
+                            System.out.println("There is no product with this ID:)");
+                        }
                     }
                 } else if (!shop.searchSock(productName).isEmpty()){
                     System.out.println(shop.searchSock(productName));
                     System.out.println("If you want to add a product to your shopping cart Please enter it's ID(if you want to back enter b): ");
                     String ID = input.next();
                     if (!ID.equalsIgnoreCase("b")){
-                        System.out.println(shop.searchInSock(ID, productName));
-                        Sock temp = shop.searchInSock(ID, productName).get(0);
-                        ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Clothe", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
-                        shoppingCart.addProduct(ID, product);
-                        user.addProduct(ID, product);
+                        if (!shop.searchInSock(ID, productName).isEmpty()) {
+                            System.out.println(shop.searchInSock(ID, productName));
+                            Sock temp = shop.searchInSock(ID, productName).get(0);
+                            ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Clothe", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber(), currentDate.getNow());
+                            shoppingCart.addProduct(ID, product);
+                            user.addProduct(ID, product);
+                        } else {
+                            System.out.println("There is no product with this ID:)");
+                        }
                     }
                 } else if (!shop.searchBloodSugarTestMachine(productName).isEmpty()){
                     System.out.println(shop.searchBloodSugarTestMachine(productName));
                     System.out.println("If you want to add a product to your shopping cart Please enter it's ID(if you want to back enter b): ");
                     String ID = input.next();
                     if (!ID.equalsIgnoreCase("b")){
-                        System.out.println(shop.searchInBloodSugarTest(ID, productName));
-                        BloodSugarTestMachine temp = shop.searchInBloodSugarTest(ID, productName).get(0);
-                        ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Health tools", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
-                        shoppingCart.addProduct(ID, product);
-                        user.addProduct(ID, product);
+                        if (!shop.searchInBloodSugarTest(ID, productName).isEmpty()) {
+                            System.out.println(shop.searchInBloodSugarTest(ID, productName));
+                            BloodSugarTestMachine temp = shop.searchInBloodSugarTest(ID, productName).get(0);
+                            ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Health tools", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber(), currentDate.getNow());
+                            shoppingCart.addProduct(ID, product);
+                            user.addProduct(ID, product);
+                        } else {
+                            System.out.println("There is no product with this ID:)");
+                        }
                     }
                 } else if (!shop.searchSphygmomanometer(productName).isEmpty()){
                     System.out.println(shop.searchSphygmomanometer(productName));
                     System.out.println("If you want to add a product to your shopping cart Please enter it's ID(if you want to back enter b): ");
                     String ID = input.next();
                     if (!ID.equalsIgnoreCase("b")){
-                        System.out.println(shop.searchInSphygmomanometer(ID, productName));
-                        Sphygmomanometer temp = shop.searchInSphygmomanometer(ID, productName).get(0);
-                        ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Health tools", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
-                        shoppingCart.addProduct(ID, product);
-                        user.addProduct(ID, product);
+                        if (!shop.searchInSphygmomanometer(ID, productName).isEmpty()) {
+                            System.out.println(shop.searchInSphygmomanometer(ID, productName));
+                            Sphygmomanometer temp = shop.searchInSphygmomanometer(ID, productName).get(0);
+                            ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Health tools", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber(), currentDate.getNow());
+                            shoppingCart.addProduct(ID, product);
+                            user.addProduct(ID, product);
+                        } else {
+                            System.out.println("There is no product with this ID:)");
+                        }
                     }
                 } else if (!shop.searchElectricEngine(productName).isEmpty()){
                     System.out.println(shop.searchElectricEngine(productName));
                     System.out.println("If you want to add a product to your shopping cart Please enter it's ID(if you want to back enter b): ");
                     String ID = input.next();
                     if (!ID.equalsIgnoreCase("b")){
-                        System.out.println(shop.searchInElectronicEngine(ID, productName));
-                        ElectricEngine temp = shop.searchInElectronicEngine(ID, productName).get(0);
-                        ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Electronic Tools", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
-                        shoppingCart.addProduct(ID, product);
-                        user.addProduct(ID, product);
+                        if (!shop.searchInElectronicEngine(ID, productName).isEmpty()) {
+                            System.out.println(shop.searchInElectronicEngine(ID, productName));
+                            ElectricEngine temp = shop.searchInElectronicEngine(ID, productName).get(0);
+                            ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Electronic Tools", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber(), currentDate.getNow());
+                            shoppingCart.addProduct(ID, product);
+                            user.addProduct(ID, product);
+                        } else {
+                            System.out.println("There is no product with this ID:)");
+                        }
                     }
                 } else if (!shop.searchCarWash(productName).isEmpty()){
                     System.out.println(shop.searchCarWash(productName));
                     System.out.println("If you want to add a product to your shopping cart Please enter it's ID(if you want to back enter b): ");
                     String ID = input.next();
                     if (!ID.equalsIgnoreCase("b")){
-                        System.out.println(shop.searchInCarWash(ID, productName));
-                        CarWash temp = shop.searchInCarWash(ID, productName).get(0);
-                        ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Electronic Tools", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
-                        shoppingCart.addProduct(ID, product);
-                        user.addProduct(ID, product);
+                        if (!shop.searchInCarWash(ID, productName).isEmpty()) {
+                            System.out.println(shop.searchInCarWash(ID, productName));
+                            CarWash temp = shop.searchInCarWash(ID, productName).get(0);
+                            ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Electronic Tools", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber(), currentDate.getNow());
+                            shoppingCart.addProduct(ID, product);
+                            user.addProduct(ID, product);
+                        } else {
+                            System.out.println("There is no product with this ID:)");
+                        }
                     }
                 } else if (!shop.searchDishWasher(productName).isEmpty()){
                     System.out.println(shop.searchDishWasher(productName));
                     System.out.println("If you want to add a product to your shopping cart Please enter it's ID(if you want to back enter b): ");
                     String ID = input.next();
                     if (!ID.equalsIgnoreCase("b")){
-                        System.out.println(shop.searchInDishwasher(ID, productName));
-                        DishWasher temp = shop.searchInDishwasher(ID, productName).get(0);
-                        ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Kitchen devices", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
-                        shoppingCart.addProduct(ID, product);
-                        user.addProduct(ID, product);
+                        if (!shop.searchInDishwasher(ID, productName).isEmpty()) {
+                            System.out.println(shop.searchInDishwasher(ID, productName));
+                            DishWasher temp = shop.searchInDishwasher(ID, productName).get(0);
+                            ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Kitchen devices", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber(), currentDate.getNow());
+                            shoppingCart.addProduct(ID, product);
+                            user.addProduct(ID, product);
+                        } else {
+                            System.out.println("There is no product with this ID:)");
+                        }
                     }
                 } else if (!shop.searchSaw(productName).isEmpty()){
                     System.out.println(shop.searchSaw(productName));
                     System.out.println("If you want to add a product to your shopping cart Please enter it's ID(if you want to back enter b): ");
                     String ID = input.next();
                     if (!ID.equalsIgnoreCase("b")){
-                        System.out.println(shop.searchInSaw(ID, productName));
-                        Saw temp = shop.searchInSaw(ID, productName).get(0);
-                        ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Non Electronic devices", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
-                        shoppingCart.addProduct(ID, product);
-                        user.addProduct(ID, product);
+                        if (!shop.searchInSaw(ID, productName).isEmpty()) {
+                            System.out.println(shop.searchInSaw(ID, productName));
+                            Saw temp = shop.searchInSaw(ID, productName).get(0);
+                            ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Non Electronic devices", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber(), currentDate.getNow());
+                            shoppingCart.addProduct(ID, product);
+                            user.addProduct(ID, product);
+                        } else {
+                            System.out.println("There is no product with this ID:)");
+                        }
                     }
                 } else if (!shop.searchVacuumCleaner(productName).isEmpty()){
                     System.out.println(shop.searchVacuumCleaner(productName));
                     System.out.println("If you want to add a product to your shopping cart Please enter it's ID(if you want to back enter b): ");
                     String ID = input.next();
                     if (!ID.equalsIgnoreCase("b")){
-                        System.out.println(shop.searchInVacuumCleaner(ID, productName));
-                        VacuumCleaner temp = shop.searchInVacuumCleaner(ID, productName).get(0);
-                        ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Kitchen devices", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
-                        shoppingCart.addProduct(ID, product);
-                        user.addProduct(ID, product);
+                        if (!shop.searchInVacuumCleaner(ID, productName).isEmpty()) {
+                            System.out.println(shop.searchInVacuumCleaner(ID, productName));
+                            VacuumCleaner temp = shop.searchInVacuumCleaner(ID, productName).get(0);
+                            ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Kitchen devices", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber(), currentDate.getNow());
+                            shoppingCart.addProduct(ID, product);
+                            user.addProduct(ID, product);
+                        } else {
+                            System.out.println("There is no product with this ID:)");
+                        }
                     }
                 } else if (!shop.searchGuitar(productName).isEmpty()){
                     System.out.println(shop.searchGuitar(productName));
                     System.out.println("If you want to add a product to your shopping cart Please enter it's ID(if you want to back enter b): ");
                     String ID = input.next();
                     if (!ID.equalsIgnoreCase("b")){
-                        System.out.println(shop.searchInGuitar(ID, productName));
-                        Guitar temp = shop.searchInGuitar(ID, productName).get(0);
-                        ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Musical Instruments", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
-                        shoppingCart.addProduct(ID, product);
-                        user.addProduct(ID, product);
+                        if (!shop.searchInGuitar(ID, productName).isEmpty()) {
+                            System.out.println(shop.searchInGuitar(ID, productName));
+                            Guitar temp = shop.searchInGuitar(ID, productName).get(0);
+                            ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Musical Instruments", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber(), currentDate.getNow());
+                            shoppingCart.addProduct(ID, product);
+                            user.addProduct(ID, product);
+                        } else {
+                            System.out.println("There is no product with this ID:)");
+                        }
                     }
                 } else if (!shop.searchViolin(productName).isEmpty()){
                     System.out.println(shop.searchViolin(productName));
                     System.out.println("If you want to add a product to your shopping cart Please enter it's ID(if you want to back enter b): ");
                     String ID = input.next();
                     if (!ID.equalsIgnoreCase("b")){
-                        System.out.println(shop.searchInViolin(ID, productName));
-                        Violin temp = shop.searchInViolin(ID, productName).get(0);
-                        ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Musical Instruments", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
-                        shoppingCart.addProduct(ID, product);
-                        user.addProduct(ID, product);
+                        if (!shop.searchInViolin(ID, productName).isEmpty()) {
+                            System.out.println(shop.searchInViolin(ID, productName));
+                            Violin temp = shop.searchInViolin(ID, productName).get(0);
+                            ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Musical Instruments", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber(), currentDate.getNow());
+                            shoppingCart.addProduct(ID, product);
+                            user.addProduct(ID, product);
+                        } else {
+                            System.out.println("There is no product with this ID:)");
+                        }
                     }
                 } else if (!shop.searchHammer(productName).isEmpty()){
                     System.out.println(shop.searchHammer(productName));
                     System.out.println("If you want to add a product to your shopping cart Please enter it's ID(if you want to back enter b): ");
                     String ID = input.next();
                     if (!ID.equalsIgnoreCase("b")){
-                        System.out.println(shop.searchInHammer(ID, productName));
-                        Hammer temp = shop.searchInHammer(ID, productName).get(0);
-                        ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Non Electronic devices", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
-                        shoppingCart.addProduct(ID, product);
-                        user.addProduct(ID, product);
+                        if (!shop.searchInHammer(ID, productName).isEmpty()) {
+                            System.out.println(shop.searchInHammer(ID, productName));
+                            Hammer temp = shop.searchInHammer(ID, productName).get(0);
+                            ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Non Electronic devices", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber(), currentDate.getNow());
+                            shoppingCart.addProduct(ID, product);
+                            user.addProduct(ID, product);
+                        } else {
+                            System.out.println("There is no product with this ID:)");
+                        }
                     }
                 } else if (!shop.searchBackpack(productName).isEmpty()){
                     System.out.println(shop.searchBackpack(productName));
                     System.out.println("If you want to add a product to your shopping cart Please enter it's ID(if you want to back enter b): ");
                     String ID = input.next();
                     if (!ID.equalsIgnoreCase("b")){
-                        System.out.println(shop.searchInBackpack(ID, productName));
-                        Backpack temp = shop.searchInBackpack(ID, productName).get(0);
-                        ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Stationary", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
-                        shoppingCart.addProduct(ID, product);
-                        user.addProduct(ID, product);
+                        if (!shop.searchInBackpack(ID, productName).isEmpty()) {
+                            System.out.println(shop.searchInBackpack(ID, productName));
+                            Backpack temp = shop.searchInBackpack(ID, productName).get(0);
+                            ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Stationary", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber(), currentDate.getNow());
+                            shoppingCart.addProduct(ID, product);
+                            user.addProduct(ID, product);
+                        } else {
+                            System.out.println("There is no product with this ID:)");
+                        }
                     }
                 } else if (!shop.searchStudyLight(productName).isEmpty()){
                     System.out.println(shop.searchStudyLight(productName));
                     System.out.println("If you want to add a product to your shopping cart Please enter it's ID(if you want to back enter b): ");
                     String ID = input.next();
                     if (!ID.equalsIgnoreCase("b")){
-                        System.out.println(shop.searchInStudyLight(ID, productName));
-                        StudyLight temp = shop.searchInStudyLight(ID, productName).get(0);
-                        ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Stationary", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
-                        shoppingCart.addProduct(ID, product);
-                        user.addProduct(ID, product);
+                        if (!shop.searchInStudyLight(ID, productName).isEmpty()) {
+                            System.out.println(shop.searchInStudyLight(ID, productName));
+                            StudyLight temp = shop.searchInStudyLight(ID, productName).get(0);
+                            ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Stationary", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber(), currentDate.getNow());
+                            shoppingCart.addProduct(ID, product);
+                            user.addProduct(ID, product);
+                        } else {
+                            System.out.println("There is no product with this ID:)");
+                        }
                     }
                 } else if (!shop.searchCar(productName).isEmpty()){
                     System.out.println(shop.searchCar(productName));
                     System.out.println("If you want to add a product to your shopping cart Please enter it's ID(if you want to back enter b): ");
                     String ID = input.next();
                     if (!ID.equalsIgnoreCase("b")){
-                        System.out.println(shop.searchInCar(ID, productName));
-                        Car temp = shop.searchInCar(ID, productName).get(0);
-                        ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Vehicle", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
-                        shoppingCart.addProduct(ID, product);
-                        user.addProduct(ID, product);
+                        if (!shop.searchInCar(ID, productName).isEmpty()) {
+                            System.out.println(shop.searchInCar(ID, productName));
+                            Car temp = shop.searchInCar(ID, productName).get(0);
+                            ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Vehicle", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber(), currentDate.getNow());
+                            shoppingCart.addProduct(ID, product);
+                            user.addProduct(ID, product);
+                        } else {
+                            System.out.println("There is no product with this ID:)");
+                        }
                     }
                 } else if (!shop.searchTruck(productName).isEmpty()){
                     System.out.println(shop.searchTruck(productName));
                     System.out.println("If you want to add a product to your shopping cart Please enter it's ID(if you want to back enter b): ");
                     String ID = input.next();
                     if (!ID.equalsIgnoreCase("b")){
-                        System.out.println(shop.searchInTruck(ID, productName));
-                        Truck temp = shop.searchInTruck(ID, productName).get(0);
-                        ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Vehicle", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber());
-                        shoppingCart.addProduct(ID, product);
-                        user.addProduct(ID, product);
+                        if (!shop.searchInTruck(ID, productName).isEmpty()) {
+                            System.out.println(shop.searchInTruck(ID, productName));
+                            Truck temp = shop.searchInTruck(ID, productName).get(0);
+                            ShoppingCart product = new ShoppingCart(temp.getName(), temp.getBrand(), "Vehicle", temp.getID(), temp.getPrice(), temp.getCompanyName(), temp.getNumber(), currentDate.getNow());
+                            shoppingCart.addProduct(ID, product);
+                            user.addProduct(ID, product);
+                        } else {
+                            System.out.println("There is no product with this ID:)");
+                        }
                     }
                 } else {
                     System.out.println("There is no product according to your search :((");
@@ -1240,10 +1325,15 @@ public class Main {
                 String emailAddress = input.next();
                 if (password.equals(confirmPassword))
                 {
-                    Admin admin1 = new Admin(username, password, emailAddress);
-                    shop.addAdmin(admin1);
+                    if (!shop.adminLogin(password)) {
+                        Admin admin1 = new Admin(username, password, emailAddress);
+                        shop.addAdmin(admin1);
+                        System.out.println(admin.getUsername() + " added a new admin with " + admin1.getUsername() + " username!");
+                    } else {
+                        System.err.println("There is exist an admin with this password(Passwords must be unique!)");
+                    }
                 } else {
-                    System.out.println("Passwords don't match! PLease try again.");
+                    System.err.println("Passwords don't match! PLease try again.");
                 }
             } else if (choice.equals("6"))
             {
@@ -1273,11 +1363,14 @@ public class Main {
                 for (BuyRequest request : shop.getShoppingCart()){
                     System.out.println("User: " + request.getUser());
                     System.out.println("Seller: " + request.getSeller());
-                    System.out.println("Price of the product: " + request.getProductPrice());
+                    System.out.println("Price of each the product: " + request.getProductPrice());
                     System.out.println("User's wallet amount: " + request.getUserWallet());
+                    System.out.println("Total price of the shopping cart: " + request.getProductPrice()* request.getNumOfOrders());
+                    System.out.println("Can user pay off the whole shopping cart? " + request.canUserPayOff());
                     System.out.println("Product's ID: " + request.getID());
                     System.out.println("Number of orders by user: " + request.getNumOfOrders());
                     System.out.println("Number of available products: " + request.getNumOfAvaItems());
+                    System.out.println("The time that product added to the shopping cart list: " + request.getShoppingCart().getDate());
                     System.out.println("Do you want to confirm this order(1-Yes/2-No?");
                     int adminInput = input.nextInt();
                     if (adminInput == 1){
